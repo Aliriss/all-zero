@@ -8,13 +8,25 @@ const router = createRouter({
     },
     {
       path: '/',
-      redirect: '/people',
+      redirect: '/home',
       children: [
         {
           path: 'people',
           component: () => import('@/view/people/People.vue')
+        },
+        {
+          path: 'home',
+          component: () => import('@/view/index.vue')
+        },
+        {
+          path: 'bill/index',
+          component: () => import('@/view/bill/index.vue')
         }
       ]
+    },
+    {
+      path: '/expenditure',
+      component: () => import('@/view/expenditure/index.vue')
     }
   ]
 });
