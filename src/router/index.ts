@@ -27,6 +27,10 @@ const router = createRouter({
     {
       path: '/expenditure',
       component: () => import('@/view/expenditure/index.vue')
+    },
+    {
+      path: '/wy',
+      component: () => import('@/view/people/Wy.vue')
     }
   ]
 });
