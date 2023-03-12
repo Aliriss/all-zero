@@ -54,14 +54,12 @@ export default class MenuItem extends Vue {
   menu!: any;
 
   mounted() {
-    console.log('menu: ', this.menu)
   }
 
   selectMenu(val: any) {
     // console.log('item: ', item);
     // console.log('key: ', key);
     // console.log('keyPath: ', keyPath);
-    console.log('select: ', val);
   }
 }
 </script>

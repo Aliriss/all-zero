@@ -69,7 +69,6 @@ export default class Index extends Vue {
   }
 
   handleClick(val: any) {
-    console.log('val: ', val)
     this.selectedKeys = val.keyPath;
     let i = 0;
     let menu = this.menu;

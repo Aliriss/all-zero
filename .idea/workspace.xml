@@ -4,26 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="..">
-      <change afterPath="$PROJECT_DIR$/src/router/routers/defaultRoutes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/router/routers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/router/routers/simpleRoutes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/router/utils/layout.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/bill/data/Data.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/layout/MenuItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/layout/TestData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/layout/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="feat: 增加布局和菜单,增加bill页面和接口">
+      <change afterPath="$PROJECT_DIR$/src/api/user/userApi.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/bill/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/bill/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/util/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/util/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/bill/data/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/bill/data/Data.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/bill/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/bill/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/layout/MenuItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/layout/MenuItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/layout/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/layout/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +124,7 @@
       <workItem from="1678342312439" duration="14921000" />
       <workItem from="1678365189734" duration="1002000" />
       <workItem from="1678443439674" duration="188000" />
-      <workItem from="1678516000848" duration="8042000" />
+      <workItem from="1678516000848" duration="16875000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1667791129827</created>
@@ -255,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677747711692</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat: 增加布局和菜单,增加bill页面和接口">
+      <created>1678620113679</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678620113679</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +273,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="first" />
     <MESSAGE value=".." />
-    <option name="LAST_COMMIT_MESSAGE" value=".." />
+    <MESSAGE value="feat: 增加布局和菜单,增加bill页面和接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 增加布局和菜单,增加bill页面和接口" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
