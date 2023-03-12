@@ -8,6 +8,9 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src'),
       '*': resolve('')
+    },
+    server: {
+      open: true
     }
   }
 });

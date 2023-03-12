@@ -1,4 +1,4 @@
 import { api } from '../util';
 export const billApi = {
-    getElectBill: (params: any) => api.post('/bill/getElectBill', params)
+    getBillList: (params: any) => api.post('/bill/getBillList', params)
 }

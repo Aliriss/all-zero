@@ -5,11 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="..">
-      <change afterPath="$PROJECT_DIR$/src/view/people/Wy.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/routers/defaultRoutes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/routers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/routers/simpleRoutes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/utils/layout.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/bill/data/Data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/layout/MenuItem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/layout/TestData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/layout/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/bill/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/bill/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/util/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/util/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/bill/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/bill/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="Vue Single File Component" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -67,11 +81,19 @@
     &quot;project.structure.last.edited&quot;: &quot;SDK Location&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.HTML&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\code\\java\\all-template\\all-template\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\java\all-template\all-template\src\router\routers" />
+      <recent name="D:\code\java\all-template\all-template\src\router\bak" />
+      <recent name="D:\code\java\all-template\all-template\src\router" />
+      <recent name="D:\code\java\all-template\all-template\src\view\layout" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -108,7 +130,11 @@
       <workItem from="1677233759262" duration="1126000" />
       <workItem from="1677457837658" duration="35000" />
       <workItem from="1677721798259" duration="1424000" />
-      <workItem from="1677730873280" duration="1788000" />
+      <workItem from="1677730873280" duration="2399000" />
+      <workItem from="1678342312439" duration="14921000" />
+      <workItem from="1678365189734" duration="1002000" />
+      <workItem from="1678443439674" duration="188000" />
+      <workItem from="1678516000848" duration="8042000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1667791129827</created>
@@ -222,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677747684192</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="..">
+      <created>1677747711692</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1677747711692</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
