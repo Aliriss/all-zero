@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="feat: 增加布局和菜单,增加bill页面和接口">
-      <change afterPath="$PROJECT_DIR$/src/api/user/userApi.ts" afterDir="false" />
+    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="feat: 增加查询条件">
+      <change afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/constant.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/home/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/bill/data/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/bill/data/Data.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/bill/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/bill/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/layout/MenuItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/layout/MenuItem.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/layout/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/layout/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/expenditure/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/user/userApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/routers/defaultRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routers/defaultRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/routers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routers/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/routers/simpleRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routers/simpleRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/bill/data/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/data/Data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/bill/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +63,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/code/javaweb/msun/msun-msunportal-template&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/msun/project/msun-mobilebi-template&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
@@ -78,10 +80,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\java\all-template\all-template\src\util" />
+      <recent name="D:\code\java\all-template\all-template\src\view\analysis" />
       <recent name="D:\code\java\all-template\all-template\src\router\routers" />
       <recent name="D:\code\java\all-template\all-template\src\router\bak" />
       <recent name="D:\code\java\all-template\all-template\src\router" />
-      <recent name="D:\code\java\all-template\all-template\src\view\layout" />
     </key>
   </component>
   <component name="RunManager">
@@ -124,7 +127,9 @@
       <workItem from="1678342312439" duration="14921000" />
       <workItem from="1678365189734" duration="1002000" />
       <workItem from="1678443439674" duration="188000" />
-      <workItem from="1678516000848" duration="16875000" />
+      <workItem from="1678516000848" duration="17051000" />
+      <workItem from="1678704456804" duration="623000" />
+      <workItem from="1678756049063" duration="1581000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1667791129827</created>
@@ -252,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678620113679</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feat: 增加查询条件">
+      <created>1678630505472</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1678630505472</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +286,8 @@
     <MESSAGE value="first" />
     <MESSAGE value=".." />
     <MESSAGE value="feat: 增加布局和菜单,增加bill页面和接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 增加布局和菜单,增加bill页面和接口" />
+    <MESSAGE value="feat: 增加查询条件" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 增加查询条件" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -58,9 +58,9 @@
 </template>
 
 <script lang="ts">
-import { billApi } from '@/api/bill';
-import { userApi } from '@/api/user/userApi';
-import { billColumns, type, user, dimDateOptions } from '@/view/bill/data/Data';
+import { billApi, userApi } from '@/api';
+import { dateDimSimpleOpt } from '@/util/constant';
+import { billColumns, type } from '@/view/analysis/bill/data/Data';
 import locale from 'ant-design-vue/es/date-picker/locale/zh_CN';
 import moment from 'moment';
 import { Component, Vue } from 'vue-property-decorator';
@@ -78,11 +78,11 @@ export default class Bill extends Vue {
     userId: undefined
   }
 
-  dimDateOptions: any = dimDateOptions;
+  dimDateOptions: any = dateDimSimpleOpt;
 
   // 消费类型
   type: any = type;
-  user: any = user;
+  user: any = [];
   locale = locale;
 
   mounted() {

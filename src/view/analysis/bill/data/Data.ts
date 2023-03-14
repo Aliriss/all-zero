@@ -8,7 +8,8 @@ export const billColumns: any = [
     {
         title: '消费金额',
         dataIndex: 'charge',
-        key: 'charge'
+        key: 'charge',
+        sorter: (a: any, b: any) => Number(a.charge) - Number(b.charge)
     },
     {
         title: '消费类型',
@@ -25,6 +26,12 @@ export const billColumns: any = [
         dataIndex: 'time',
         key: 'time',
         sorter: (a: any, b: any) => a.time.localeCompare(b.time)
+    },
+    {
+        title: '操作',
+        dataIndex: 'action',
+        key: 'action',
+        scopedSlots: { customRender: 'action' }
     }
 ];
 
@@ -41,31 +48,5 @@ export const type: any = [
     {
         id: 3,
         name: '交通'
-    }
-];
-
-export const user: any = [
-    {
-        id: 1,
-        name: 'haha'
-    },
-    {
-        id: 2,
-        name: 'all'
-    },
-    {
-        id: 3,
-        name: 'heihei'
-    }
-];
-
-export const dimDateOptions: any = [
-    {
-        label: '日',
-        value: '1'
-    },
-    {
-        label: '月',
-        value: '3'
     }
 ];

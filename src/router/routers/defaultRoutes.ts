@@ -1,22 +1,20 @@
 import { Layout } from '@/router/utils/layout';
 
-
+/**
+ * 默认布局的页面路由
+ */
 export const defaultRoutes: any = [{
     path: '',
     redirect: '/home',
     component: Layout,
     children: [
         {
-            path: 'people',
-            component: () => import('@/view/people/People.vue')
-        },
-        {
             path: 'home',
-            component: {}
+            component: () => import('@/view/home/Home.vue')
         },
         {
             path: 'bill',
-            component: () => import('@/view/bill/index.vue')
+            component: () => import('@/view/analysis/bill/index.vue')
         }
     ]
 }]
