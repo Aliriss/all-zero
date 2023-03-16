@@ -52,7 +52,11 @@
       <a-table
           :columns="columns"
           :data-source="dataSource"
-        />
+      >
+        <template #action="record">
+          {{ record }}
+        </template>
+      </a-table>
     </div>
   </div>
 </template>

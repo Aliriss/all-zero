@@ -6,7 +6,7 @@ export const billColumns: any = [
         key: 'userName'
     },
     {
-        title: '消费金额',
+        title: '消费金额（元）',
         dataIndex: 'charge',
         key: 'charge',
         sorter: (a: any, b: any) => Number(a.charge) - Number(b.charge)

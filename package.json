@@ -2,8 +2,8 @@
   "name": "all-template",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite --host",
-    "build": "vite build"
+    "dev": "vite --host --open",
+    "build": "vite build --open"
   },
   "dependencies": {
     "antd": "^4.24.1",

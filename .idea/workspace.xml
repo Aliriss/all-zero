@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="feat: 增加查询条件">
-      <change afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/constant.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/home/Home.vue" afterDir="false" />
+    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="refactor: 重构分析界面结构，重构api结构，重构router结构">
+      <change afterPath="$PROJECT_DIR$/src/env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/expenditure/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/userApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/routers/defaultRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routers/defaultRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/routers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/routers/simpleRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routers/simpleRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/bill/data/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/data/Data.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/bill/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/util/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/util/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/data/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/data/Data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,30 +52,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;LombokPluginIS_LOMBOK_JPS_FIX_ENABLED&quot;: &quot;true&quot;,
-    &quot;LombokPluginIS_LOMBOK_VERSION_CHECK_Enabled&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/msun/project/msun-mobilebi-template&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDK Location&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.HTML&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\code\\java\\all-template\\all-template\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "LombokPluginIS_LOMBOK_JPS_FIX_ENABLED": "true",
+    "LombokPluginIS_LOMBOK_VERSION_CHECK_Enabled": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/code/java/all-template/all-template/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDK Location",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.sourceCode.HTML",
+    "ts.external.directory.path": "D:\\code\\java\\all-template\\all-template\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\java\all-template\all-template\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\code\java\all-template\all-template\src\util" />
       <recent name="D:\code\java\all-template\all-template\src\view\analysis" />
@@ -129,7 +129,8 @@
       <workItem from="1678443439674" duration="188000" />
       <workItem from="1678516000848" duration="17051000" />
       <workItem from="1678704456804" duration="623000" />
-      <workItem from="1678756049063" duration="1581000" />
+      <workItem from="1678756049063" duration="2771000" />
+      <workItem from="1678961318552" duration="2230000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1667791129827</created>
@@ -264,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678630505472</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="refactor: 重构分析界面结构，重构api结构，重构router结构">
+      <created>1678757653891</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1678757653891</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +295,8 @@
     <MESSAGE value=".." />
     <MESSAGE value="feat: 增加布局和菜单,增加bill页面和接口" />
     <MESSAGE value="feat: 增加查询条件" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 增加查询条件" />
+    <MESSAGE value="refactor: 重构分析界面结构，重构api结构，重构router结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: 重构分析界面结构，重构api结构，重构router结构" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
