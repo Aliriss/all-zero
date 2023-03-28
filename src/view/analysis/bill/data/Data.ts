@@ -1,4 +1,7 @@
 // 费用表头
+import { Generator } from '@/util/Generator';
+import moment from 'moment/moment';
+
 export const billColumns: any = [
     {
         title: '用户',
@@ -13,8 +16,8 @@ export const billColumns: any = [
     },
     {
         title: '消费类型',
-        dataIndex: 'type',
-        key: 'type'
+        dataIndex: 'typeName',
+        key: 'typeName'
     },
     {
         title: '描述',

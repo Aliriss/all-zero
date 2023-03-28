@@ -15,9 +15,9 @@
     <!--无子菜单-->
     <a-menu-item v-else :key="item.id" @select="selectMenu">
       <router-link :to="item.link">{{ item.title }}</router-link>
-      <template #icon>
-        <!--<Icon :type="item.icon"/>-->
-      </template>
+      <!--<template #icon>-->
+      <!--  <Icon :type="item.icon"/>-->
+      <!--</template>-->
     </a-menu-item>
   </template>
 </template>
@@ -53,13 +53,7 @@ export default class MenuItem extends Vue {
   @Prop({ required: true, type: Array })
   menu!: any;
 
-  mounted() {
-  }
-
   selectMenu(val: any) {
-    // console.log('item: ', item);
-    // console.log('key: ', key);
-    // console.log('keyPath: ', keyPath);
   }
 }
 </script>

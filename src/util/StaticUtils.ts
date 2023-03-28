@@ -21,6 +21,6 @@ export class StaticUtils {
     }
 
     static isNotEmpty(a: any) {
-        return this.isEmpty(a)
+        return !this.isEmpty(a)
     }
 }

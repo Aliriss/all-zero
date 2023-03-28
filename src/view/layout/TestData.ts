@@ -16,15 +16,7 @@ export const menuTest = [
                 title: '消费账单',
                 icon: 'fund-outlined',
                 link: '/bill',
-                children: [
-                    {
-                        id: 'test3',
-                        title: '测试菜单',
-                        icon: 'testIcon',
-                        link: '/bill',
-                        children: []
-                    }
-                ]
+                children: []
             },
             {
                 id: 'test2',
