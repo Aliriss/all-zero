@@ -69,6 +69,17 @@
     <!--add content: add bill list. contain a button used to show add modal -->
     <div class="operation-content">
       <a-button type="primary" @click="showAddModal">添加</a-button>
+      <span style="margin-left: 20px">收入：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.income }}</span>元</span>
+      <span style="margin-left: 20px">
+        <a-tooltip>
+          <template #title>
+            <p>共消费{{ dayNum }}天，消费限额：{{ balance }}元</p>
+            <p v-if="sumData.outcome > this.balance">超额: <span style="color: red">{{ sumData.outcome - balance }}</span>元</p>
+            <span style="font-size: 12px">注：每天消费限额：<span style="color: dodgerblue">30</span>元</span>
+          </template>
+          支出：<span :style="{'font-size': '16px', 'color': sumData.outcome < this.balance ? 'green' : 'red'}">{{ sumData.outcome }}</span>元
+        </a-tooltip>
+      </span>
     </div>
     <!--table content: show bill data-->
     <div class="table-content">
@@ -116,7 +127,9 @@ import moment from 'moment';
 import { Component, Vue } from 'vue-property-decorator';
 @Component({
   name: 'Bill',
-  components: {Date, AddPage}
+  components: {Date, AddPage},
+  computed: {
+  }
 })
 export default class Bill extends Vue {
   text = 'haha';
@@ -143,6 +156,10 @@ export default class Bill extends Vue {
     confirmLoading: false
   }
 
+  sumData: any = {};
+  dayNum = 10;
+  balance = 20;
+
   mounted() {
     this.query()
     this.getUser();
@@ -150,8 +167,9 @@ export default class Bill extends Vue {
   }
 
   async query() {
-    const { data } = await billApi.getBillList(this.params);
-    this.dataSource = data;
+    this.getBillList();
+    this.getSum();
+    this.calcBalance();
   }
 
   reset() {
@@ -169,7 +187,11 @@ export default class Bill extends Vue {
    */
   invalidate(record: any) {
     billApi.invalidateBill({ id: record.id }).then((res: any) => {
-      console.log('res: ', res)
+      if (res.data.code === 200) {
+        message.success(res.data.msg);
+      } else {
+        message.error(res.data.msg);
+      }
     }).finally(() => {
       this.query();
     });
@@ -181,7 +203,11 @@ export default class Bill extends Vue {
    */
   validate(record: any) {
     billApi.validateBill({ id: record.id }).then((res: any) => {
-      console.log('res: ', res)
+      if (res.data.code === 200) {
+        message.success(res.data.msg);
+      } else {
+        message.error(res.data.msg);
+      }
     }).finally(() => {
       this.query();
     });
@@ -213,6 +239,24 @@ export default class Bill extends Vue {
     this.type = data;
   }
 
+  /**
+   * 查询账单列表
+   * @returns {Promise<void>}
+   */
+  async getBillList() {
+    const { data } = await billApi.getBillList(this.params);
+    this.dataSource = data;
+  }
+
+  /**
+   * 查询合计数据
+   * @returns {Promise<void>}
+   */
+  async getSum() {
+    const { data } = await billApi.getBillSum(this.params);
+    this.sumData = data;
+  }
+
   onFinishFailed() {
     console.log('on finished failed')
   }
@@ -226,7 +270,7 @@ export default class Bill extends Vue {
     if (saved) {
       this.closeAddModal();
     }
-    this.query();
+    await this.query();
   }
 
   /**
@@ -271,6 +315,44 @@ export default class Bill extends Vue {
 
   dimChange(dim: any) {
     this.params.dimDate = dim;
+  }
+
+  getDayNum() {
+    let startDate = moment();
+    let endDate = moment();
+    if (this.params.dimDate === '1' || this.params.dimDate === 1) {
+      if (this.params.startDate && this.params.endDate) {
+        startDate = moment(this.params.startDate, 'YYYY-MM-DD');
+        endDate = moment(this.params.endDate, 'YYYY-MM-DD');
+      } else {
+        startDate = moment(moment().format('YYYY-MM') + '-01', 'YYYY-MM-DD');
+      }
+    } else {
+      if (this.params.opDate) {
+        startDate = moment(this.params.opDate + '01', 'YYYY-MM-DD');
+      } else {
+        startDate = moment(moment().format('YYYY-MM') + '-01', 'YYYY-MM-DD');
+      }
+    }
+    return endDate.diff(startDate, 'days') + 1;
+  }
+
+  getBalance(day: number) {
+    return day * 30;
+  }
+
+  calcBalance() {
+    this.dayNum = this.getDayNum();
+    this.balance = this.getBalance(this.dayNum);
+  }
+
+  /**
+   * 计算支出展示颜色，超过限定会变红
+   * @param {number} data
+   * @returns {string}
+   */
+  calcColor(data: number) {
+    return data < this.balance ? 'green' : 'red';
   }
 }
 </script>

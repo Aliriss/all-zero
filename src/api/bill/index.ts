@@ -6,4 +6,5 @@ export const billApi = {
     invalidateBill: (params: any) => api.post('/bill/invalidateBill', params),
     validateBill: (params: any) => api.post('/bill/validateBill', params),
     deleteBill: (params: any) => api.post('/bill/deleteBill', params),
+    getBillSum: (params: any) => api.post('/bill/getBillSum', params)
 }

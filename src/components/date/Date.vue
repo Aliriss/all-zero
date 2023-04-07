@@ -11,6 +11,7 @@
     </template>
     <!--时间选择区域-->
     <date-picker
+        v-if="datePickerDim"
         :dimDate="datePickerDim"
         :op-date="opDate"
         :start-date="startDate"
@@ -29,22 +30,17 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
   name: 'Date',
   components: {DatePicker},
   props: {
-    // dimDate: {
-    //   type: Array,
-    //   required: true
-    // },
-    // defaultDimDate: {
-    //   type: String,
-    //   required: true
-    // }
-  }
+  },
+  emits: [
+    'change', 'dimChange'
+  ]
 })
 export default class Date extends Vue {
   // 经过转换的时间粒度数组，用于展示一个或多个时间选择器
   dimDateList: any;
   // 传入的时间粒度，用于展示时间选择组件
   @Prop({required: true})
-  dimDate!: number | string | [number] | [string];
+  dimDate!: number | string | [number, string];
   // 默认时间粒度
   @Prop({required: true})
   defaultDimDate!: string | number;
@@ -57,7 +53,7 @@ export default class Date extends Vue {
   dateRange: any;
   datePickerDim: string | number | undefined;
 
-  mounted() {
+  created() {
     this.datePickerDim = this.defaultDimDate;
   }
 

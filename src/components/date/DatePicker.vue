@@ -51,11 +51,10 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 @Component({
   name: 'DatePicker',
   props: {
-    // dimDate: {
-    //   type: String||Number,
-    //   required: true
-    // }
-  }
+  },
+  emits: [
+    'change'
+  ]
 })
 export default class DatePicker extends Vue {
   @Prop({required: true})

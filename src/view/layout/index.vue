@@ -51,9 +51,9 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class Index extends Vue {
   collapsed = false;
   // 已选菜单id，只有一个选择的id
-  selectedKey = ["home"];
+  selectedKey = ['home'];
   // 已选菜单id，有父子id
-  selectedKeys = ["home"];
+  selectedKeys = ['home'];
   // 已选菜单标题
   selectedTitle = [];
   logo: any = {
