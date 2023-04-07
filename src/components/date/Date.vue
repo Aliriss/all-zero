@@ -3,11 +3,11 @@
     <!--时间粒度展示区域-->
     <template v-for="dim in dimDateList" :key="dim">
       <!--时间粒度展示区域-->
-      <a-button v-if="dim === '1' || dim === 1 || dim === 'date'" type="primary" @click="changeDim(dim)">日</a-button>
-      <a-button v-if="dim === '2' || dim === 2 || dim === 'week'" type="primary" @click="changeDim(dim)">周</a-button>
-      <a-button v-if="dim === '3' || dim === 3 || dim === 'month'" type="primary" @click="changeDim(dim)">月</a-button>
-      <a-button v-if="dim === '4' || dim === 4 || dim === 'quarter'" type="primary" @click="changeDim(dim)">季</a-button>
-      <a-button v-if="dim === '5' || dim === 5 || dim === 'year'" type="primary" @click="changeDim(dim)">年</a-button>
+      <a-button v-if="dim === '1' || dim === 1 || dim === 'date'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">日</a-button>
+      <a-button v-if="dim === '2' || dim === 2 || dim === 'week'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">周</a-button>
+      <a-button v-if="dim === '3' || dim === 3 || dim === 'month'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">月</a-button>
+      <a-button v-if="dim === '4' || dim === 4 || dim === 'quarter'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">季</a-button>
+      <a-button v-if="dim === '5' || dim === 5 || dim === 'year'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">年</a-button>
     </template>
     <!--时间选择区域-->
     <date-picker
