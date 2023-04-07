@@ -219,10 +219,10 @@ export default class Bill extends Vue {
    */
   deleteBill(record: any) {
     billApi.deleteBill({id: record.id}).then((res: any) => {
-      if (res.data[0].code === 200) {
-        message.success(res.data[0].msg)
+      if (res.data.code === 200) {
+        message.success(res.data.msg)
       } else {
-        message.error(res.data[0].msg)
+        message.error(res.data.msg)
       }
     }).finally(() => {
       this.query()
@@ -344,15 +344,6 @@ export default class Bill extends Vue {
   calcBalance() {
     this.dayNum = this.getDayNum();
     this.balance = this.getBalance(this.dayNum);
-  }
-
-  /**
-   * 计算支出展示颜色，超过限定会变红
-   * @param {number} data
-   * @returns {string}
-   */
-  calcColor(data: number) {
-    return data < this.balance ? 'green' : 'red';
   }
 }
 </script>
