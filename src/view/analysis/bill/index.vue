@@ -74,10 +74,10 @@
         <a-tooltip>
           <template #title>
             <p>共消费{{ dayNum }}天，消费限额：{{ balance }}元</p>
-            <p v-if="sumData.outcome > this.balance">超额: <span style="color: red">{{ sumData.outcome - balance }}</span>元</p>
+            <p v-if="sumData.outcome > balance">超额: <span style="color: red">{{ sumData.outcome - balance }}</span>元</p>
             <span style="font-size: 12px">注：每天消费限额：<span style="color: dodgerblue">30</span>元</span>
           </template>
-          支出：<span :style="{'font-size': '16px', 'color': sumData.outcome < this.balance ? 'green' : 'red'}">{{ sumData.outcome }}</span>元
+          支出：<span :style="{'font-size': '16px', 'color': sumData.outcome < balance ? 'green' : 'red'}">{{ sumData.outcome }}</span>元
         </a-tooltip>
       </span>
     </div>
