@@ -59,7 +59,7 @@
                   @change="(value, option) => record.typeName = option ? option.label : undefined"
               >
                 <a-select-option v-for="item in typeList" :key="item.id" :label="item.name">
-                  {{ item.name }}
+                  <a-tooltip :title="item.description">{{ item.name }}</a-tooltip>
                 </a-select-option>
               </a-select>
             </template>

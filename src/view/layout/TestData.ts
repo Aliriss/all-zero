@@ -17,20 +17,13 @@ export const menuTest = [
                 icon: 'fund-outlined',
                 link: '/bill',
                 children: []
-            },
-            {
-                id: 'test2',
-                title: 'test2',
-                icon: 'test2',
-                link: '/bill',
-                children: []
             }
         ]
     },
     {
-        id: 'test1',
-        title: 'test1',
-        icon: 'test1',
+        id: 'admin',
+        title: '系统管理',
+        icon: 'manage',
         link: '/bill',
         children: []
     }

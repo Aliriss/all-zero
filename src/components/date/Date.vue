@@ -3,11 +3,11 @@
     <!--时间粒度展示区域-->
     <template v-for="dim in dimDateList" :key="dim">
       <!--时间粒度展示区域-->
-      <a-button v-if="dim === '1' || dim === 1 || dim === 'date'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">日</a-button>
-      <a-button v-if="dim === '2' || dim === 2 || dim === 'week'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">周</a-button>
-      <a-button v-if="dim === '3' || dim === 3 || dim === 'month'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">月</a-button>
-      <a-button v-if="dim === '4' || dim === 4 || dim === 'quarter'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">季</a-button>
-      <a-button v-if="dim === '5' || dim === 5 || dim === 'year'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">年</a-button>
+      <a-button v-if="dim === '1'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">日</a-button>
+      <a-button v-if="dim === '2'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">周</a-button>
+      <a-button v-if="dim === '3'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">月</a-button>
+      <a-button v-if="dim === '4'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">季</a-button>
+      <a-button v-if="dim === '5'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">年</a-button>
     </template>
     <!--时间选择区域-->
     <date-picker
@@ -46,9 +46,9 @@ export default class Date extends Vue {
   defaultDimDate!: string | number;
   @Prop({default: moment().format('YYYY-MM')})
   opDate!: any;
-  @Prop({default: moment().format('YYYY-MM')})
+  @Prop({default: moment().format('YYYY-MM-DD')})
   startDate!: any;
-  @Prop({default: moment().format('YYYY-MM')})
+  @Prop({default: moment().format('YYYY-MM-DD')})
   endDate!: any;
   dateRange: any;
   datePickerDim: string | number | undefined;
