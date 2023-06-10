@@ -1,6 +1,12 @@
 <template>
   <div class="container">
-    <div class="search">TODO search content</div>
+    <div class="search">
+      <Search
+          :params="params"
+          :dimDateList="['1', '3']"
+          :query="query"
+          :reset="reset" />
+    </div>
     <div class="content">
       <div class="line">TODO line content</div>
       <div class="summary">
@@ -38,13 +44,15 @@
 
 <script lang="ts">
 import { billApi } from '@/api';
+import Date from '@/components/date/Date.vue';
+import Search from '@/components/search/Search.vue';
 import DetailPage from '@/view/analysis/bill/component/DetailPage.vue';
 import moment from 'moment/moment';
-import { Options, Vue } from 'vue-property-decorator';
+import { Options, Vue, Watch } from 'vue-property-decorator';
 
 @Options({
   name: 'Summary',
-  components: {DetailPage}
+  components: {Search, Date, DetailPage}
 })
 export default class Summary extends Vue {
   columns: any = [
@@ -74,7 +82,7 @@ export default class Summary extends Vue {
     endDate: moment().format('YYYY-MM-DD'),
     type: undefined,
     userId: undefined,
-    invalidFlag: 1 // 0：作废，1：启用
+    invalidFlag: undefined // 0：作废，1：启用
   }
   summary: any = {
     income: 0,
@@ -90,6 +98,18 @@ export default class Summary extends Vue {
   mounted() {
     this.query();
     this.querySum();
+  }
+
+  reset() {
+    this.params = {
+      dimDate: '3',
+      opDate: moment().format('YYYY-MM'),
+      startDate: moment().format('YYYY-MM-DD'),
+      endDate: moment().format('YYYY-MM-DD'),
+      type: undefined,
+      userId: undefined,
+      invalidFlag: undefined // 0：作废，1：启用
+    }
   }
 
   async query() {
@@ -130,8 +150,8 @@ export default class Summary extends Vue {
   height: 100%;
   .search{
     width: 100%;
-    height: 100px;
-    background-color: white;
+    // padding: 5px 0;
+    // background-color: white;
     text-align: center;
     margin: 10px 0;
   }

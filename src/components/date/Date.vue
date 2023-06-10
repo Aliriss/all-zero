@@ -3,16 +3,16 @@
     <!--时间粒度展示区域-->
     <template v-for="dim in dimDateList" :key="dim">
       <!--时间粒度展示区域-->
-      <a-button v-if="dim === '1'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">日</a-button>
-      <a-button v-if="dim === '2'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">周</a-button>
-      <a-button v-if="dim === '3'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">月</a-button>
-      <a-button v-if="dim === '4'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">季</a-button>
-      <a-button v-if="dim === '5'" :type="dim === datePickerDim ? 'primary' : 'default'" @click="changeDim(dim)">年</a-button>
+      <a-button v-if="dim === '1'" :type="dim === defaultDimDate ? 'primary' : 'default'" @click="changeDim(dim)">日</a-button>
+      <a-button v-if="dim === '2'" :type="dim === defaultDimDate ? 'primary' : 'default'" @click="changeDim(dim)">周</a-button>
+      <a-button v-if="dim === '3'" :type="dim === defaultDimDate ? 'primary' : 'default'" @click="changeDim(dim)">月</a-button>
+      <a-button v-if="dim === '4'" :type="dim === defaultDimDate ? 'primary' : 'default'" @click="changeDim(dim)">季</a-button>
+      <a-button v-if="dim === '5'" :type="dim === defaultDimDate ? 'primary' : 'default'" @click="changeDim(dim)">年</a-button>
     </template>
     <!--时间选择区域-->
     <date-picker
-        v-if="datePickerDim"
-        :dimDate="datePickerDim"
+        v-if="defaultDimDate"
+        :dimDate="defaultDimDate"
         :op-date="opDate"
         :start-date="startDate"
         :end-date="endDate"
@@ -70,9 +70,8 @@ export default class Date extends Vue {
    * 时间粒度变化，时间组件相应改变
    * @param {string | number} dim 时间粒度
    */
-  changeDim(dim: string | number) {
-    this.datePickerDim = dim;
-    this.$emit('dimChange', dim)
+  async changeDim(dim: string | number) {
+    await this.$emit('dimChange', dim)
   }
 
   dateChange(date: any) {

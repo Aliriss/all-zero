@@ -69,21 +69,21 @@
     <!--add content: add bill list. contain a button used to show add modal -->
     <div class="operation-content">
       <a-button type="primary" @click="showAddModal">添加</a-button>
-      <span style="margin-left: 20px">收入：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.income }}</span>元</span>
+      <span style="margin-left: 20px">收入：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.income || 0 }}</span>元</span>
       <span style="margin-left: 20px">
         <a-tooltip title="总支出">
-          支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.outcome }}</span>元
+          支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.outcome || 0 }}</span>元
         </a-tooltip>
       </span>
       <span style="margin-left: 20px">
         <a-tooltip>
           <template #title>
-            <p>共消费{{ dayNum }}天，消费限额：{{ limit }}元</p>
+            <p>共计{{ dayNum }}天，消费限额：{{ limit }}元</p>
             <p>超额: <span :style="{'color': sumData.eatOutcome > limit ? 'red' : 'green'}">{{ sumData.eatOutcome > limit ? Number(sumData.eatOutcome - limit).toFixed(2) : 0 }}</span>元</p>
             <p>余额: <span style="color: green">{{ sumData.eatOutcome < limit ? Number(limit - sumData.eatOutcome).toFixed(2) : 0 }}</span>元</p>
             <span style="font-size: 12px">注：每天消费限额：<span style="color: dodgerblue">30</span>元</span>
           </template>
-          饮食支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.eatOutcome }}</span>元
+          饮食支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.eatOutcome || 0 }}</span>元
         </a-tooltip>
       </span>
       <span style="margin-left: 20px">
@@ -94,7 +94,7 @@
           <!--  <p>余额: <span style="color: green">{{ sumData.outcome < limit ? Number(limit - sumData.outcome).toFixed(2) : 0 }}</span>元</p>-->
           <!--  <span style="font-size: 12px">注：每天消费限额：<span style="color: dodgerblue">30</span>元</span>-->
           <!--</template>-->
-          生活支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.liveOutcome }}</span>元
+          生活支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.liveOutcome || 0 }}</span>元
         </a-tooltip>
       </span>
       <span style="margin-left: 20px">
@@ -105,7 +105,7 @@
           <!--  <p>余额: <span style="color: green">{{ sumData.outcome < limit ? Number(limit - sumData.outcome).toFixed(2) : 0 }}</span>元</p>-->
           <!--  <span style="font-size: 12px">注：每天消费限额：<span style="color: dodgerblue">30</span>元</span>-->
           <!--</template>-->
-          旅游支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.travelOutcome }}</span>元
+          旅游支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.travelOutcome || 0 }}</span>元
         </a-tooltip>
       </span>
       <span style="margin-left: 20px">
@@ -116,20 +116,20 @@
           <!--  <p>余额: <span style="color: green">{{ sumData.outcome < limit ? Number(limit - sumData.outcome).toFixed(2) : 0 }}</span>元</p>-->
           <!--  <span style="font-size: 12px">注：每天消费限额：<span style="color: dodgerblue">30</span>元</span>-->
           <!--</template>-->
-          交通支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.walkOutcome }}</span>元
+          交通支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.walkOutcome || 0 }}</span>元
         </a-tooltip>
       </span>
-      <!--<span style="margin-left: 20px">-->
-      <!--  <a-tooltip>-->
-      <!--    <template #title>-->
-      <!--      <p>共消费{{ dayNum }}天，消费限额：{{ limit }}元</p>-->
-      <!--      <p>超额: <span :style="{'color': sumData.outcome > limit ? 'red' : 'green'}">{{ sumData.outcome > limit ? Number(sumData.outcome - limit).toFixed(2) : 0 }}</span>元</p>-->
-      <!--      <p>余额: <span style="color: green">{{ sumData.outcome < limit ? Number(limit - sumData.outcome).toFixed(2) : 0 }}</span>元</p>-->
-      <!--      <span style="font-size: 12px">注：每天消费限额：<span style="color: dodgerblue">30</span>元</span>-->
-      <!--    </template>-->
-      <!--    社交支出：<span :style="{'font-size': '16px', 'color': sumData.outcome < limit ? 'green' : 'red'}">{{ sumData.outcome }}</span>元-->
-      <!--  </a-tooltip>-->
-      <!--</span>-->
+      <span style="margin-left: 20px">
+        <a-tooltip>
+          <!--<template #title>-->
+          <!--  <p>共消费{{ dayNum }}天，消费限额：{{ limit }}元</p>-->
+          <!--  <p>超额: <span :style="{'color': sumData.outcome > limit ? 'red' : 'green'}">{{ sumData.outcome > limit ? Number(sumData.outcome - limit).toFixed(2) : 0 }}</span>元</p>-->
+          <!--  <p>余额: <span style="color: green">{{ sumData.outcome < limit ? Number(limit - sumData.outcome).toFixed(2) : 0 }}</span>元</p>-->
+          <!--  <span style="font-size: 12px">注：每天消费限额：<span style="color: dodgerblue">30</span>元</span>-->
+          <!--</template>-->
+          社交支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.socialSpending || 0 }}</span>元
+        </a-tooltip>
+      </span>
     </div>
     <!--table content: show bill data-->
     <div class="table-content">
@@ -197,7 +197,7 @@ export default class Bill extends Vue {
     endDate: moment().format('YYYY-MM-DD'),
     type: undefined,
     userId: undefined,
-    invalidFlag: 0 // 0：作废，1：启用
+    invalidFlag: undefined // 0：作废，1：启用
   }
 
   // 添加账单对话框所用到的数据
@@ -305,6 +305,7 @@ export default class Bill extends Vue {
    * @returns {Promise<void>}
    */
   async getBillList(): Promise<void> {
+    console.log('params: ', this.params);
     const { data } = await billApi.getBillList(this.params);
     this.dataSource = data;
   }
@@ -391,6 +392,14 @@ export default class Bill extends Vue {
    * @param dim 时间粒度
    */
   dimChange(dim: any) {
+    if(dim === '1') {
+      // date
+      this.params.startDate = moment().format('YYYY-MM-DD');
+      this.params.endDate = moment().format('YYYY-MM-DD');
+    } else if (dim === '3') {
+      // month
+      this.params.opDate = moment().format('YYYY-MM');
+    }
     this.params.dimDate = dim;
   }
 
