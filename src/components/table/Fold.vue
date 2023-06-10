@@ -5,12 +5,12 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Options, Prop, Vue } from 'vue-property-decorator';
 import {
   UpOutlined,
   DownOutlined
 } from '@ant-design/icons-vue';
-@Component({
+@Options({
   components: {
     UpOutlined,
     DownOutlined

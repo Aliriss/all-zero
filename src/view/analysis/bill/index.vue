@@ -173,8 +173,8 @@ import { billColumns } from '@/view/analysis/bill/data/Data';
 import { message } from 'ant-design-vue';
 import locale from 'ant-design-vue/es/date-picker/locale/zh_CN';
 import moment from 'moment';
-import { Component, Vue } from 'vue-property-decorator';
-@Component({
+import { Options, Vue } from 'vue-property-decorator';
+@Options({
   name: 'Bill',
   components: {Date, AddPage},
   computed: {

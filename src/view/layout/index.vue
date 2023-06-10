@@ -35,9 +35,10 @@ import {
   TeamOutlined,
   FileOutlined,
 } from '@ant-design/icons-vue';
-import { Component, Vue } from 'vue-property-decorator';
+import { Vue } from 'vue-property-decorator';
+import { Options } from 'vue-class-component'
 
-@Component({
+@Options({
   name: 'Index',
   components: {
     MenuItem,

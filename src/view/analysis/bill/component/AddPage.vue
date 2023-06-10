@@ -79,7 +79,11 @@
               {{ record.time }}
             </template>
             <template v-else>
-              <a-input v-model:value="record.time" placeholder="please input time"/>
+              <!--<a-input v-model:value="record.time" placeholder="please input time"/>-->
+              <div style="display: flex">
+                <a-date-picker valueFormat="YYYY-MM-DD" v-model:value="record.date" />
+                <a-time-picker v-model:value="record.time2" valueFormat="HH:mm:ss"/>
+              </div>
             </template>
           </template>
           <!--action to edit(save/cancel)/delete-->
@@ -111,9 +115,9 @@ import { billColumns } from '@/view/analysis/bill/data/Data';
 import { message } from 'ant-design-vue';
 import { log } from 'echarts/types/src/util/log';
 import moment from 'moment';
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Options, Prop, Vue } from 'vue-property-decorator';
 
-@Component({
+@Options({
   name: 'AddPage'
 })
 export default class AddPage extends Vue {
@@ -202,6 +206,7 @@ export default class AddPage extends Vue {
    * @param record 一条数据
    */
   saveOne(record: any) {
+    record.time = record.date + " " + record.time2;
     record.editFlag = 0;
     Object.assign(this.billList.filter((item: any) => record.id === item.id)[0], record);
   }

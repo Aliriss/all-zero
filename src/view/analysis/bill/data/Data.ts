@@ -28,6 +28,7 @@ export const billColumns: any = [
         title: '时间',
         dataIndex: 'time',
         key: 'time',
+        width: 300,
         sorter: (a: any, b: any) => a.time.localeCompare(b.time)
     },
     {

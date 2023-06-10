@@ -24,9 +24,9 @@
 <script lang="ts">
 import DatePicker from '@/components/date/DatePicker.vue';
 import moment from 'moment/moment';
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+import { Options, Prop, Vue, Watch } from 'vue-property-decorator';
 
-@Component({
+@Options({
   name: 'Date',
   components: {DatePicker},
   props: {

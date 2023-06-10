@@ -17,6 +17,12 @@ export const menuTest = [
                 icon: 'fund-outlined',
                 link: '/bill',
                 children: []
+            },
+            {
+                id: 'summary',
+                title: '账单合计',
+                icon: 'fund-outlined',
+                link: '/summary'
             }
         ]
     },

@@ -46,9 +46,9 @@
 
 <script lang="ts">
 import moment from 'moment';
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+import { Options, Prop, Vue, Watch } from 'vue-property-decorator';
 
-@Component({
+@Options({
   name: 'DatePicker',
   props: {
   },

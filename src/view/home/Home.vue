@@ -3,9 +3,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Vue } from 'vue-property-decorator';
+import { Options } from 'vue-class-component'
 
-@Component({
+@Options({
   name: 'home'
 })
 export default class Home extends Vue {

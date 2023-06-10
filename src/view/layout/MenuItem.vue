@@ -23,7 +23,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Options } from 'vue-class-component'
+import { Prop, Vue } from 'vue-property-decorator';
 // const Icon = {
 //   name: 'icon',
 //   props: {
@@ -34,7 +35,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 //   },
 //   template: `<desktop-outlined />`
 // }
-@Component({
+@Options({
   name: 'MenuItem',
   components: {
     MenuItem

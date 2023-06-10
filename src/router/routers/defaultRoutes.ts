@@ -15,6 +15,10 @@ export const defaultRoutes: any = [{
         {
             path: 'bill',
             component: () => import('@/view/analysis/bill/index.vue')
+        },
+        {
+            path: 'summary',
+            component: () => import('@/view/analysis/bill/summary.vue')
         }
     ]
 }]
