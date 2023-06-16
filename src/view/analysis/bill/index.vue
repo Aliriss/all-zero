@@ -197,7 +197,7 @@ export default class Bill extends Vue {
     endDate: moment().format('YYYY-MM-DD'),
     type: undefined,
     userId: undefined,
-    invalidFlag: undefined // 0：作废，1：启用
+    invalidFlag: 1 // 0：作废，1：启用
   }
 
   // 添加账单对话框所用到的数据

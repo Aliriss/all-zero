@@ -30,7 +30,19 @@ export const menuTest = [
         id: 'admin',
         title: '系统管理',
         icon: 'manage',
-        link: '/bill',
-        children: []
+        children: [
+            {
+                id: 'type',
+                title: '消费类型管理',
+                icon: 'fund-outlined',
+                link: '/system/type'
+            },
+            {
+                id: 'user',
+                title: '用户管理',
+                icon: 'fund-outlined',
+                link: '/system/user'
+            },
+        ]
     }
 ]

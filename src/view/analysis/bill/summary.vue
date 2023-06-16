@@ -82,7 +82,7 @@ export default class Summary extends Vue {
     endDate: moment().format('YYYY-MM-DD'),
     type: undefined,
     userId: undefined,
-    invalidFlag: undefined // 0：作废，1：启用
+    invalidFlag: 1 // 0：作废，1：启用
   }
   summary: any = {
     income: 0,

@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="feat: 修改添加账单的时间操作">
-      <change afterPath="$PROJECT_DIR$/src/components/search/Search.vue" afterDir="false" />
+    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="feat: 修改合计页面，添加查询组件">
+      <change afterPath="$PROJECT_DIR$/src/router/routers/configRoutes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/system/type/TypeAddPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/system/type/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/system/user/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/date/Date.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/date/Date.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/bill/type/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/bill/type/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/search/Search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/search/Search.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/routers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routers/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/routers/simpleRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routers/simpleRoutes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/summary.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/summary.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/layout/TestData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/layout/TestData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/people/Wy.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +29,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="Vue Single File Component" />
         <option value="Vue Options API Component" />
+        <option value="TypeScript File" />
         <option value="Vue Class API Component" />
       </list>
     </option>
@@ -51,41 +61,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "LombokPluginIS_LOMBOK_JPS_FIX_ENABLED": "true",
-    "LombokPluginIS_LOMBOK_VERSION_CHECK_Enabled": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev-release-V1.0.0",
-    "javascript.nodejs.core.library.configured.version": "16.18.0",
-    "javascript.nodejs.core.library.typings.version": "16.18.0",
-    "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "D:/code/java/all-template/all-template/src/components/date",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "D:\\code\\java\\all-template\\all-template\\node_modules\\eslint",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDK Location",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
-    "ts.external.directory.path": "D:\\code\\java\\all-template\\all-template\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;LombokPluginIS_LOMBOK_JPS_FIX_ENABLED&quot;: &quot;true&quot;,
+    &quot;LombokPluginIS_LOMBOK_VERSION_CHECK_Enabled&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev-release-V1.0.0&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.18.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.0&quot;,
+    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/code/java/all-template/all-template/src/components/date&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;D:\\code\\java\\all-template\\all-template\\node_modules\\eslint&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDK Location&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\code\\java\\all-template\\all-template\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Options API Component",
-      "Vue Class API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Options API Component&quot;,
+      &quot;Vue Class API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\code\java\all-template\all-template\src\components\date" />
@@ -93,11 +103,11 @@
       <recent name="D:\code\java\all-template\all-template\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\java\all-template\all-template\src\view\system" />
       <recent name="D:\code\java\all-template\all-template\src\view\analysis" />
       <recent name="D:\code\java\all-template\all-template\src\view\analysis\expenditure\bill" />
       <recent name="D:\code\java\all-template\all-template\src\api\bill" />
       <recent name="D:\code\java\all-template\all-template\src\api" />
-      <recent name="D:\code\java\all-template\all-template\src\api\expenditure" />
     </key>
   </component>
   <component name="RunManager">
@@ -190,7 +200,15 @@
       <workItem from="1685438015319" duration="692000" />
       <workItem from="1686111931621" duration="611000" />
       <workItem from="1686300449087" duration="598000" />
-      <workItem from="1686404029226" duration="8401000" />
+      <workItem from="1686404029226" duration="8680000" />
+      <workItem from="1686450639672" duration="8653000" />
+      <workItem from="1686528542125" duration="2180000" />
+      <workItem from="1686614547870" duration="699000" />
+      <workItem from="1686624269945" duration="1439000" />
+      <workItem from="1686653250855" duration="2184000" />
+      <workItem from="1686788752973" duration="300000" />
+      <workItem from="1686798122643" duration="710000" />
+      <workItem from="1686884716595" duration="1936000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1667791129827</created>
@@ -367,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686410167645</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="feat: 修改合计页面，添加查询组件">
+      <created>1686414243761</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1686414243761</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,7 +421,8 @@
     <MESSAGE value="feat: 添加新功能" />
     <MESSAGE value="feat: 修改菜单" />
     <MESSAGE value="feat: 修改添加账单的时间操作" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改添加账单的时间操作" />
+    <MESSAGE value="feat: 修改合计页面，添加查询组件" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改合计页面，添加查询组件" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

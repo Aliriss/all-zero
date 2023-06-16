@@ -180,5 +180,11 @@ export default class Search extends Vue {
 </script>
 
 <style scoped lang="less">
-.search-common{}
+.search-common{
+  .form-content{
+    .form-item{
+      // width: 15%;
+    }
+  }
+}
 </style>

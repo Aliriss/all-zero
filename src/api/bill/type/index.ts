@@ -5,9 +5,13 @@ import { api } from '@/api/util';
  * @param params
  * @returns {Promise<AxiosResponse<any>>}
  */
-const getTypeList =  (params: any) => api.post('/bill/getTypeList', params);
+const getList =  () => api.get('/type/list');
+const addOne =  (params: any) => api.post('/type/add', params);
+const deleteById =  (params: any) => api.delete(`/type?id=${params}`);
 
 
-export const expTypeApi = {
-    getTypeList
+export const typeApi = {
+    getList,
+    addOne,
+    deleteById
 }
