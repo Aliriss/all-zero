@@ -287,7 +287,7 @@ export default class Bill extends Vue {
    * @returns {Promise<void>}
    */
   async getUser(): Promise<void> {
-    const { data } = await userApi.getUserList({});
+    const { data } = await userApi.getUserList({enable: 1});
     this.user = data;
   }
 

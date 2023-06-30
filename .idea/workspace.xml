@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="feat: 修改合计页面，添加查询组件">
-      <change afterPath="$PROJECT_DIR$/src/router/routers/configRoutes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/system/type/TypeAddPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/system/type/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/system/user/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/bill/type/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/bill/type/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/search/Search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/search/Search.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/routers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/routers/simpleRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routers/simpleRoutes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/summary.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/summary.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/layout/TestData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/layout/TestData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/people/Wy.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,6 +198,15 @@
       <workItem from="1686788752973" duration="300000" />
       <workItem from="1686798122643" duration="710000" />
       <workItem from="1686884716595" duration="1936000" />
+      <workItem from="1687052788650" duration="1251000" />
+      <workItem from="1687096503341" duration="1600000" />
+      <workItem from="1687133337613" duration="618000" />
+      <workItem from="1687230753254" duration="1272000" />
+      <workItem from="1687507275173" duration="732000" />
+      <workItem from="1687533262272" duration="870000" />
+      <workItem from="1687824283303" duration="1125000" />
+      <workItem from="1687920781648" duration="625000" />
+      <workItem from="1688026905976" duration="570000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1667791129827</created>

@@ -166,7 +166,7 @@ export default class Summary extends Vue {
       margin-bottom: 10px;
       display: flex;
       .summary-info {
-        width: 10%;
+        // width: 10%;
         font-size: 14px;
         font-weight: bold;
         white-space: nowrap;
@@ -178,6 +178,9 @@ export default class Summary extends Vue {
           font-size: 16px;
           color: red;
         }
+      }
+      .summary-info:nth-child(2) {
+        margin-left: 5px;
       }
     }
   }
