@@ -83,7 +83,7 @@
             <p>余额: <span style="color: green">{{ sumData.eatOutcome < limit ? Number(limit - sumData.eatOutcome).toFixed(2) : 0 }}</span>元</p>
             <span style="font-size: 12px">注：每天消费限额：<span style="color: dodgerblue">30</span>元</span>
           </template>
-          饮食支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.eatOutcome || 0 }}</span>元
+          饮食支出：<span :style="{'font-size': '16px', 'color': sumData.eatOutcome > limit ? 'red' : 'green'}">{{ sumData.eatOutcome || 0 }}</span>元
         </a-tooltip>
       </span>
       <span style="margin-left: 20px">
