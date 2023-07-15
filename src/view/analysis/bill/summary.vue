@@ -8,7 +8,9 @@
           :reset="reset" />
     </div>
     <div class="content">
-      <div class="line">TODO line content</div>
+      <div class="line">
+        <line-echarts :line-data="lineData"/>
+      </div>
       <div class="summary">
         <span class="summary-info">总收入：<span class="value">{{ summary.income || 0 }}</span>元</span>
         <span class="summary-info">总支出：<span class="value" :style="{color: summary.outcome > 2000 ? 'red' : 'green'}">{{ summary.outcome || 0 }}</span>元</span>
@@ -17,6 +19,7 @@
           :columns="columns"
           :data-source="dataSource"
           row-key="id"
+          :custom-row="rowClick"
       >
         <template #bodyCell="{column, record}">
           <template v-if="column.key === 'operation'">
@@ -45,6 +48,7 @@
 <script lang="ts">
 import { billApi } from '@/api';
 import Date from '@/components/date/Date.vue';
+import LineEcharts from '@/components/echarts/LineEcharts.vue';
 import Search from '@/components/search/Search.vue';
 import DetailPage from '@/view/analysis/bill/component/DetailPage.vue';
 import moment from 'moment/moment';
@@ -52,7 +56,7 @@ import { Options, Vue, Watch } from 'vue-property-decorator';
 
 @Options({
   name: 'Summary',
-  components: {Search, Date, DetailPage}
+  components: {LineEcharts, Search, Date, DetailPage}
 })
 export default class Summary extends Vue {
   columns: any = [
@@ -95,6 +99,28 @@ export default class Summary extends Vue {
     params: this.params
   }
 
+  lineData: any = {
+    title: 'test line',
+    xAxis: ['2023-01', '2023-02', '2023-03'],
+    data: [1, 2, 3],
+    dataList: [
+      [1, 2, 3]
+    ]
+  };
+
+  rowClick: any = (record: any) => ({
+    // 事件
+    on: {
+      click: () => {
+        this.selectRow(record);
+      }
+    }
+  })
+
+  selectRow(record: any) {
+    console.log('select row: ', record)
+  }
+
   mounted() {
     this.query();
     // this.querySum();
@@ -116,6 +142,16 @@ export default class Summary extends Vue {
     const { data } = await billApi.getSummaryList(this.params);
     this.dataSource = data;
     await this.querySum();
+    this.getBillLine();
+  }
+
+  getBillLine() {
+    billApi.getBillLine(this.params).then((res: any) => {
+      this.lineData = res.data;
+      this.lineData.title = '消费类趋势'
+    }).catch((error: any) => {
+      console.log('error: ', error)
+    })
   }
 
   async querySum() {
@@ -159,9 +195,11 @@ export default class Summary extends Vue {
   .content{
     .line{
       width: 100%;
-      height: 100px;
+      // width: 150px;
+      height: 200px;
       background-color: white;
       text-align: center;
+      padding-top: 20px;
     }
     .summary {
       margin-bottom: 10px;

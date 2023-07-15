@@ -4,65 +4,28 @@
 </template>
 
 <script lang="ts">
+import { lineOption } from '@/components/echarts/data';
 import * as echarts from 'echarts';
 import { StaticUtils } from '@/util/StaticUtils';
-import { Vue, Options, Prop } from 'vue-property-decorator';
+import { Vue, Options, Prop, Watch } from 'vue-property-decorator';
 
 @Options({})
 export default class LineEcharts extends Vue {
   myEcharts: any = undefined;
-  option: any = {
-    visualMap: [
-      {
-        show: false,
-        type: 'continuous',
-        seriesIndex: 0,
-        min: 0,
-        max: 400
-      }
-    ],
-    title: [
-      {
-        left: 'center',
-        text: 'Gradient along the y axis'
-      }
-    ],
-    tooltip: {
-      trigger: 'axis'
-    },
-    xAxis: [
-      {
-        data: []
-      }
-    ],
-    yAxis: [
-      {}
-    ],
-    grid: [
-      {
-        bottom: '60%'
-      }
-    ],
-    series: [
-      {
-
-      }
-    ]
-  };
+  option: any = lineOption;
 
   @Prop({
     type: Object,
     default: {
       xAxis: [],
-      dataList: []
+      data: []
     }})
-  lineData!: object;
+  lineData!: any;
 
   mounted() {
     this.initEcharts();
     this.setOption();
   }
-
 
   initEcharts() {
     if (StaticUtils.isEmpty(this.myEcharts)) {
@@ -70,8 +33,11 @@ export default class LineEcharts extends Vue {
     }
   }
 
+  @Watch('lineData', { deep: true })
   setOption() {
+    this.option.title[0].text = this.lineData.title;
     this.option.xAxis[0].data = this.lineData.xAxis;
+    this.option.series = [];
     for (let i = 0; i < this.lineData.dataList.length; i++) {
       this.option.series.push({
         type: 'line',
@@ -79,10 +45,15 @@ export default class LineEcharts extends Vue {
         data: this.lineData.dataList[i]
       })
     }
+    this.initEcharts();
+    this.myEcharts.setOption(this.option);
   }
 }
 </script>
 
 <style scoped lang="less">
-
+#lineEcharts {
+  height: 100%;
+  width: 100%;
+}
 </style>

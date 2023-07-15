@@ -67,7 +67,7 @@ export default class DatePicker extends Vue {
   endDate!: any;
   dateRange: any = [moment().format('YYYY-MM-DD'), moment().format('YYYY-MM-DD')]
 
-  @Watch('dateRange, opDate', {immediate: true, deep: true})
+  @Watch('dateRange, opDate', {deep: true})
   dateChange(dates: any) {
     this.$emit('change', dates)
   }
