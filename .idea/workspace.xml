@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="feat: 修改合计">
-      <change afterPath="$PROJECT_DIR$/src/components/echarts/LineEcharts.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/echarts/PieEcharts.vue" afterDir="false" />
+    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="feat: 添加summary折线图">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/echarts/LineEcharts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/echarts/LineEcharts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/data/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/data/Data.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/summary.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/summary.vue" afterDir="false" />
     </list>
@@ -21,8 +21,8 @@
       <list>
         <option value="Vue Single File Component" />
         <option value="Vue Options API Component" />
-        <option value="TypeScript File" />
         <option value="Vue Class API Component" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -215,7 +215,12 @@
       <workItem from="1689033475423" duration="787000" />
       <workItem from="1689070496350" duration="761000" />
       <workItem from="1689206739827" duration="802000" />
-      <workItem from="1689292807868" duration="470000" />
+      <workItem from="1689292807868" duration="1663000" />
+      <workItem from="1689412525081" duration="8545000" />
+      <workItem from="1689430242097" duration="1465000" />
+      <workItem from="1689437045974" duration="79000" />
+      <workItem from="1689437164823" duration="199000" />
+      <workItem from="1689551935059" duration="540000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1667791129827</created>
@@ -406,7 +411,23 @@
       <option name="project" value="LOCAL" />
       <updated>1688084033016</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="feat: 修改合计">
+      <option name="closed" value="true" />
+      <created>1689294040622</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1689294040622</updated>
+    </task>
+    <task id="LOCAL-00029" summary="feat: 添加summary折线图">
+      <option name="closed" value="true" />
+      <created>1689431544766</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1689431544766</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +458,8 @@
     <MESSAGE value="feat: 修改添加账单的时间操作" />
     <MESSAGE value="feat: 修改合计页面，添加查询组件" />
     <MESSAGE value="feat: 修改合计" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改合计" />
+    <MESSAGE value="feat: 添加summary折线图" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加summary折线图" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

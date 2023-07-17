@@ -46,6 +46,7 @@ export default class LineEcharts extends Vue {
       })
     }
     this.initEcharts();
+    console.log(this.lineData.dataList)
     this.myEcharts.setOption(this.option);
   }
 }

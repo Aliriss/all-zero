@@ -6,18 +6,21 @@ export const billColumns: any = [
     {
         title: '用户',
         dataIndex: 'userName',
-        key: 'userName'
+        key: 'userName',
+        width: 100
     },
     {
         title: '消费金额（元）',
         dataIndex: 'charge',
         key: 'charge',
+        width: 150,
         sorter: (a: any, b: any) => Number(a.charge) - Number(b.charge)
     },
     {
         title: '消费类型',
         dataIndex: 'typeName',
-        key: 'typeName'
+        key: 'typeName',
+        width: 100
     },
     {
         title: '描述',
@@ -35,6 +38,7 @@ export const billColumns: any = [
         title: '操作',
         dataIndex: 'action',
         key: 'action',
+        width: 100,
         scopedSlots: { customRender: 'action' }
     }
 ];

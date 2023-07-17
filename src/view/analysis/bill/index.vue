@@ -69,7 +69,7 @@
     <!--add content: add bill list. contain a button used to show add modal -->
     <div class="operation-content">
       <a-button type="primary" @click="showAddModal">添加</a-button>
-      <span style="margin-left: 20px">收入：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.income || 0 }}</span>元</span>
+      <!--<span style="margin-left: 20px">收入：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.income || 0 }}</span>元</span>-->
       <span style="margin-left: 20px">
         <a-tooltip title="总支出">
           支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.outcome || 0 }}</span>元

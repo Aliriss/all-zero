@@ -12,8 +12,8 @@
         <line-echarts :line-data="lineData"/>
       </div>
       <div class="summary">
-        <span class="summary-info">总收入：<span class="value">{{ summary.income || 0 }}</span>元</span>
-        <span class="summary-info">总支出：<span class="value" :style="{color: summary.outcome > 2000 ? 'red' : 'green'}">{{ summary.outcome || 0 }}</span>元</span>
+        <span class="summary-info">总收入：<span class="value">{{ summary?.income || 0 }}</span>元</span>
+        <span class="summary-info">总支出：<span class="value" :style="{color: summary?.outcome > 2000 ? 'red' : 'green'}">{{ summary?.outcome || 0 }}</span>元</span>
       </div>
       <a-table
           :columns="columns"
@@ -205,7 +205,7 @@ export default class Summary extends Vue {
       margin-bottom: 10px;
       display: flex;
       .summary-info {
-        width: 10%;
+        width: 15%;
         font-size: 14px;
         font-weight: bold;
         white-space: nowrap;
