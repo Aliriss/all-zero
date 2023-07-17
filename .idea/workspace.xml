@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="feat: 添加summary折线图">
+    <list default="true" id="05028e31-f61d-4f56-a6a7-b44c314dd1b4" name="Changes" comment="feat: 页面样式修改和折线图添加">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/echarts/LineEcharts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/echarts/LineEcharts.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/data/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/data/Data.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/analysis/bill/summary.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/analysis/bill/summary.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/date/Date.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/date/Date.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +217,7 @@
       <workItem from="1689430242097" duration="1465000" />
       <workItem from="1689437045974" duration="79000" />
       <workItem from="1689437164823" duration="199000" />
-      <workItem from="1689551935059" duration="540000" />
+      <workItem from="1689551935059" duration="861000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1667791129827</created>
@@ -427,7 +424,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689431544766</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="feat: 页面样式修改和折线图添加">
+      <option name="closed" value="true" />
+      <created>1689552561463</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1689552561463</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +464,8 @@
     <MESSAGE value="feat: 修改合计页面，添加查询组件" />
     <MESSAGE value="feat: 修改合计" />
     <MESSAGE value="feat: 添加summary折线图" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加summary折线图" />
+    <MESSAGE value="feat: 页面样式修改和折线图添加" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 页面样式修改和折线图添加" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

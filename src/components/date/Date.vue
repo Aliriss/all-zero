@@ -40,7 +40,7 @@ export default class Date extends Vue {
   dimDateList: any;
   // 传入的时间粒度，用于展示时间选择组件
   @Prop({required: true})
-  dimDate!: number | string | [number, string];
+  dimDate!: [string, string];
   // 默认时间粒度
   @Prop({required: true})
   defaultDimDate!: string | number;
@@ -59,11 +59,7 @@ export default class Date extends Vue {
 
   @Watch('dimDate', {immediate: true, deep: true})
   changeDimDate() {
-    if (this.dimDate instanceof Array) {
-      this.dimDateList = this.dimDate;
-    } else {
-      this.dimDateList = [this.dimDate];
-    }
+    this.dimDateList = this.dimDate;
   }
 
   /**
