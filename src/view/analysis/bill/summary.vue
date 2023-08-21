@@ -19,7 +19,13 @@
           :columns="columns"
           :data-source="dataSource"
           row-key="id"
-          :custom-row="rowClick"
+          :custom-row="record => {
+                return {
+                  onClick: () => {
+                    selectRow(record)
+                  }
+                }
+            }"
       >
         <template #bodyCell="{column, record}">
           <template v-if="column.key === 'operation'">
@@ -119,6 +125,9 @@ export default class Summary extends Vue {
 
   selectRow(record: any) {
     console.log('select row: ', record)
+    const params = {...this.params}
+    params.typeId = record.typeId
+    this.queryLine(params);
   }
 
   mounted() {
@@ -142,11 +151,11 @@ export default class Summary extends Vue {
     const { data } = await billApi.getSummaryList(this.params);
     this.dataSource = data;
     await this.querySum();
-    this.getBillLine();
+    this.queryLine(this.params);
   }
 
-  getBillLine() {
-    billApi.getBillLine(this.params).then((res: any) => {
+  queryLine(params: any) {
+    billApi.getBillLine(params).then((res: any) => {
       this.lineData = res.data;
       this.lineData.title = '消费类趋势'
     }).catch((error: any) => {

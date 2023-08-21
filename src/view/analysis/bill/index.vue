@@ -140,8 +140,17 @@
         <template #bodyCell="{column, record}">
           <template v-if="column.key === 'action'">
             <template v-if="record.invalidFlag === 0">
-              <a @click="validate(record)">启用</a>
-              <a style="margin-left: 20px" @click="deleteBill(record)">删除</a>
+              <a style="user-select: none" @click="enable(record)">启用</a>
+              <a style="margin-left: 20px;user-select: none" @click="edit(record)">编辑</a>
+              <br />
+              <a-popconfirm
+                  title="确认要删除?"
+                  ok-text="是"
+                  cancel-text="否"
+                  @confirm="deleteBill(record)"
+              >
+                <a style="user-select: none">删除</a>
+              </a-popconfirm>
             </template>
             <a v-if="record.invalidFlag === 1" @click="invalidate(record)">作废</a>
           </template>
@@ -161,6 +170,18 @@
     >
       <AddPage ref="addPage" :user="user" :type-list="type"/>
     </a-modal>
+    <a-modal
+        title="编辑"
+        :visible="editModal.visible"
+        width="60%"
+        style="top: 30px"
+        :confirm-loading="addModalData.confirmLoading"
+        destroyOnClose
+        @ok="editOk"
+        @cancel="closeEditModal"
+    >
+      <EditPage ref="editPage" :user="user" :type-list="type" :form-data="editModal.data" />
+    </a-modal>
   </div>
 </template>
 
@@ -169,6 +190,7 @@ import { billApi, userApi } from '@/api';
 import { StaticUtils } from '@/util/StaticUtils';
 import AddPage from '@/view/analysis/bill/component/AddPage.vue';
 import Date from '@/components/date/Date.vue';
+import EditPage from '@/view/analysis/bill/component/EditPage.vue';
 import { billColumns } from '@/view/analysis/bill/data/Data';
 import { message } from 'ant-design-vue';
 import locale from 'ant-design-vue/es/date-picker/locale/zh_CN';
@@ -176,7 +198,7 @@ import moment from 'moment';
 import { Options, Vue } from 'vue-property-decorator';
 @Options({
   name: 'Bill',
-  components: {Date, AddPage},
+  components: {EditPage, Date, AddPage},
   computed: {
   }
 })
@@ -202,6 +224,11 @@ export default class Bill extends Vue {
 
   // 添加账单对话框所用到的数据
   addModalData: any = {
+    visible: false,
+    confirmLoading: false
+  }
+
+  editModal: any = {
     visible: false,
     confirmLoading: false
   }
@@ -254,7 +281,7 @@ export default class Bill extends Vue {
    * 启用
    * @param record
    */
-  validate(record: any) {
+  enable(record: any) {
     billApi.validateBill({ id: record.id }).then((res: any) => {
       if (res.data.code === 200) {
         message.success(res.data.msg);
@@ -305,7 +332,6 @@ export default class Bill extends Vue {
    * @returns {Promise<void>}
    */
   async getBillList(): Promise<void> {
-    console.log('params: ', this.params);
     const { data } = await billApi.getBillList(this.params);
     this.dataSource = data;
   }
@@ -433,6 +459,30 @@ export default class Bill extends Vue {
   calLimit() {
     this.dayNum = this.getDayNum();
     this.limit = this.getLimit(this.dayNum);
+  }
+
+  /**
+   * 编辑某一条数据
+   * @param record record
+   */
+  edit(record: any) {
+    this.editModal.data = record;
+    this.editModal.visible = true;
+  }
+
+  /**
+   * 编辑弹框确认
+   */
+  editOk() {
+    (this.$refs.editPage as any).save();
+    this.closeEditModal();
+  }
+
+  /**
+   * 关闭编辑弹窗
+   */
+  closeEditModal() {
+    this.editModal.visible = false;
   }
 }
 </script>

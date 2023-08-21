@@ -38,7 +38,8 @@ export const billColumns: any = [
         title: '操作',
         dataIndex: 'action',
         key: 'action',
-        width: 100,
+        width: 130,
+        // align: 'center',
         scopedSlots: { customRender: 'action' }
     }
 ];

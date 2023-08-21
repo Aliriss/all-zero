@@ -17,6 +17,10 @@ const getBillLine = (params: any) => {
     return api.post('/bill/getBillLine', params)
 }
 
+const updateBill = (params: any) => {
+    return api.post('/bill/updateBill', params)
+}
+
 export const billApi = {
     getBillList: (params: any) => api.post('/bill/getBillList', params),
     saveBillList: (params: any) => api.post('/bill/saveBillList', params),
@@ -27,5 +31,6 @@ export const billApi = {
     getBillSum: (params: any) => api.post('/bill/getBillSum', params),
     getSummaryList,
     getSum,
-    getBillLine
+    getBillLine,
+    updateBill
 }
