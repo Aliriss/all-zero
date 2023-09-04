@@ -81,7 +81,7 @@
             <p>共计{{ dayNum }}天，消费限额：{{ limit }}元</p>
             <p>超额: <span :style="{'color': sumData.eatOutcome > limit ? 'red' : 'green'}">{{ sumData.eatOutcome > limit ? Number(sumData.eatOutcome - limit).toFixed(2) : 0 }}</span>元</p>
             <p>余额: <span style="color: green">{{ sumData.eatOutcome < limit ? Number(limit - sumData.eatOutcome).toFixed(2) : 0 }}</span>元</p>
-            <span style="font-size: 12px">注：每天消费限额：<span style="color: dodgerblue">30</span>元</span>
+            <span style="font-size: 12px">注：每天消费限额：<span style="color: dodgerblue">{{ dayLimit }}</span>元</span>
           </template>
           饮食支出：<span :style="{'font-size': '16px', 'color': sumData.eatOutcome > limit ? 'red' : 'green'}">{{ sumData.eatOutcome || 0 }}</span>元
         </a-tooltip>
@@ -210,7 +210,8 @@ export default class Bill extends Vue {
   locale = locale;
   sumData: any = {}; // 合计数据
   dayNum = 0; // 所选天数
-  limit = 20; // 限额
+  limit = 0; // 消费总限额
+  dayLimit = 50; // 每日消费限额
   // 参数
   params: any = {
     dimDate: '3',
@@ -453,7 +454,7 @@ export default class Bill extends Vue {
   }
 
   getLimit(day: number) {
-    return day * 30;
+    return day * this.dayLimit;
   }
 
   calLimit() {
