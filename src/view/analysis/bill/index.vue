@@ -246,7 +246,6 @@ export default class Bill extends Vue {
   query() {
     this.getBillList();
     this.getSum();
-    // this.getDayNum();
     this.calLimit();
   }
 
