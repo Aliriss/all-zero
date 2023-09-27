@@ -6,5 +6,17 @@ export const simpleRoutes: any = [
     {
         path: '/todo-list',
         component: () => import('@/view/todolist/ToDoList.vue')
+    },
+    {
+        path: '/map',
+        component: () => import('@/view/test/testMap.vue')
+    },
+    {
+        path: '/file',
+        component: () => import('@/view/test/file.vue')
+    },
+    {
+        path: '/md',
+        component: () => import('@/view/study.onjava8/onJava8.vue')
     }
 ];
