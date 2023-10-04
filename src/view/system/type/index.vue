@@ -24,6 +24,8 @@
     <a-table
       :columns="columns"
       :data-source="typeList"
+      :pagination="false"
+      :scroll="{y: '600px'}"
     >
       <template #bodyCell="{column, record}">
         <template v-if="'action' === column.key">
@@ -47,7 +49,7 @@
       @ok="save"
       @cancel="closeModal"
     >
-      <TypeAddPage ref="typeAddPage" :type="modal.data" />
+      <TypeAddPage ref="typeAddPage" :type="modal.data" :flag="modal.isAdd"/>
     </a-modal>
   </div>
 </template>
@@ -67,21 +69,27 @@ export default class index extends Vue {
       title: '类型名称',
       dataIndex: 'name',
       key: 'name',
-      width: 100,
+      width: 150,
       scopedSlots: {customRender: 'name'}
     },
     {
       title: '类型描述',
       dataIndex: 'desc',
       key: 'desc',
-      width: 400,
       scopedSlots: {customRender: 'desc'}
+    },
+    {
+      title: '序号',
+      dataIndex: 'orderNo',
+      key: 'orderNo',
+      width: 100,
+      scopedSlots: {customRender: 'orderNo'}
     },
     {
       title: '操作',
       dataIndex: 'action',
       key: 'action',
-      width: 100,
+      width: 120,
       scopedSlots: {customRender: 'action'}
     }
   ];
@@ -89,7 +97,8 @@ export default class index extends Vue {
   modal: any = {
     title: 'modal',
     visible: false,
-    data: undefined
+    data: undefined,
+    isAdd: true
   }
 
   mounted() {
@@ -113,6 +122,7 @@ export default class index extends Vue {
   edit(record: any) {
     this.modal.title = '修改类型';
     this.modal.data = {...record};
+    this.modal.isAdd = false;
     this.modal.visible = true;
   }
 
@@ -122,9 +132,10 @@ export default class index extends Vue {
   }
 
   async save() {
+    this.modal.isAdd = true;
     await (this.$refs.typeAddPage as any).save();
     this.closeModal();
-    this.$nextTick(() => {
+    await this.$nextTick(() => {
       this.query();
     })
   }
