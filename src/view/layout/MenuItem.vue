@@ -55,6 +55,7 @@ export default class MenuItem extends Vue {
   menu!: any;
 
   selectMenu(val: any) {
+    console.log('select menu')
   }
 }
 </script>

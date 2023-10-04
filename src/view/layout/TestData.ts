@@ -23,6 +23,12 @@ export const menuTest = [
                 title: '账单合计',
                 icon: 'fund-outlined',
                 link: '/summary'
+            },
+            {
+                id: 'trend',
+                title: '消费趋势',
+                icon: 'fund-outlined',
+                link: '/trend'
             }
         ]
     },

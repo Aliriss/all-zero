@@ -1,18 +1,18 @@
 <template>
-  <div id="pieEcharts">
+  <div id="barEcharts">
   </div>
 </template>
 
 <script lang="ts">
-import { pieOption } from '@/components/echarts/data';
+import { barOption } from '@/components/echarts/data';
 import * as echarts from 'echarts';
 import { StaticUtils } from '@/util/StaticUtils';
 import { Vue, Options, Prop, Watch } from 'vue-property-decorator';
 
 @Options({})
-export default class PieEcharts extends Vue {
+export default class BarEcharts extends Vue {
   myEcharts: any = undefined;
-  option: any = pieOption;
+  option: any = barOption;
 
   @Prop({
     type: Object,
@@ -20,7 +20,7 @@ export default class PieEcharts extends Vue {
       xAxis: [],
       data: []
     }})
-  pieData!: any;
+  barData!: any;
 
   mounted() {
     this.initEcharts();
@@ -29,31 +29,30 @@ export default class PieEcharts extends Vue {
 
   initEcharts() {
     if (StaticUtils.isEmpty(this.myEcharts)) {
-      this.myEcharts = echarts.init((document.getElementById('pieEcharts') as any));
+      this.myEcharts = echarts.init((document.getElementById('barEcharts') as any));
     }
   }
 
-  @Watch('pieData', { deep: true })
+  @Watch('barData', { deep: true })
   setOption() {
-    this.option.title[0].text = this.pieData.title;
-    this.option.xAxis[0].data = this.pieData.xAxis;
+    this.option.title[0].text = this.barData.title;
+    this.option.xAxis[0].data = this.barData.xAxis;
     this.option.series = [];
-    for (let i = 0; i < this.pieData.dataList.length; i++) {
+    for (let i = 0; i < this.barData.dataList.length; i++) {
       this.option.series.push({
-        type: 'pie',
+        type: 'bar',
         showSymbol: false,
-        data: this.pieData.dataList[i]
+        data: this.barData.dataList[i]
       })
     }
     this.initEcharts();
-    console.log(this.pieData.dataList)
     this.myEcharts.setOption(this.option);
   }
 }
 </script>
 
 <style scoped lang="less">
-#pieEcharts {
+#barEcharts {
   height: 100%;
   width: 100%;
 }

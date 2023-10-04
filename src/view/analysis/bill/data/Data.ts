@@ -59,3 +59,19 @@ export const type: any = [
         name: '交通'
     }
 ];
+
+// 图表类型
+export const chartList: any = [
+    {
+        id: 'line',
+        name: '折线图'
+    },
+    {
+        id: 'bar',
+        name: '柱状图'
+    },
+    {
+        id: 'pie',
+        name: '饼图'
+    },
+]
