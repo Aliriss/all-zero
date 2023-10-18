@@ -45,7 +45,7 @@ export default class Content extends Vue {
 
   content: any = '';
 
-  staticPath: any = '@/view/study.onjava8/book/';
+  staticPath: any = '@/view/study/book/';
   strPostFix: any = '?raw';
 
   mounted() {
@@ -56,11 +56,11 @@ export default class Content extends Vue {
     this.content = introduction;
     // todo 如何读取文件
     // if (this.path.indexOf('#') !== -1) {
-    //   await import('@/view/study.onjava8/book/' + this.path.substring(0, this.path.indexOf("#")) + '?raw').then(res => {
+    //   await import('@/view/study/book/' + this.path.substring(0, this.path.indexOf("#")) + '?raw').then(res => {
     //     this.content = res;
     //   })
     // } else {
-    //   await import('@/view/study.onjava8/book/' + this.path + '?raw').then(res => {
+    //   await import('@/view/study/book/' + this.path + '?raw').then(res => {
     //     console.log('get file: ', res)
     //     this.content = res;
     //   })

@@ -1,4 +1,4 @@
-// import XLSX from 'xlsx';
+import XLSX from 'xlsx';
 
 /**
  * 文件工具
@@ -30,27 +30,25 @@ export class FileUtils {
    * @param tableColumns 表头
    * @param dataSource 数据
    */
-  // static downloadExcel(excelName: string, tableColumns: any, dataSource: any) {
-  //   const tableHead = [];
-  //   const checkboxGroup: string[] = [];
-  //   tableHead.push('编码');
-  //   checkboxGroup.push('indicatorId');
-  //   tableColumns.forEach((item: any) => {
-  //     if (item.title !== '操作') {
-  //       tableHead.push(item.title);
-  //       checkboxGroup.push(item.dataIndex);
-  //     }
-  //   });
-  //   const tableBody = dataSource.map((item: any) => checkboxGroup.map((k: string) => item[k]));
-  //
-  //   const tableData = [tableHead, ...tableBody];
-  //   // 将一组 JS 数据数组转换为工作表
-  //   const ws = XLSX.utils.aoa_to_sheet(tableData);
-  //   // 创建 workbook
-  //   const wb = XLSX.utils.book_new();
-  //   // 将 工作表 添加到 workbook
-  //   XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-  //   // 将 workbook 写入文件
-  //   XLSX.writeFile(wb, excelName);
-  // }
+  static downloadExcel(excelName: string, tableColumns: any, dataSource: any) {
+    const tableHead: any = [];
+    const checkboxGroup: string[] = [];
+    tableColumns.forEach((item: any) => {
+      if (item.title !== '操作') {
+        tableHead.push(item.title);
+        checkboxGroup.push(item.dataIndex);
+      }
+    });
+    const tableBody = dataSource.map((item: any) => checkboxGroup.map((k: string) => item[k]));
+
+    const tableData = [tableHead, ...tableBody];
+    // 将一组 JS 数据数组转换为工作表
+    const ws = XLSX.utils.aoa_to_sheet(tableData);
+    // 创建 workbook
+    const wb = XLSX.utils.book_new();
+    // 将 工作表 添加到 workbook
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    // 将 workbook 写入文件
+    XLSX.writeFile(wb, excelName);
+  }
 }

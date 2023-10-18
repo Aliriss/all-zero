@@ -17,6 +17,6 @@ export const simpleRoutes: any = [
     },
     {
         path: '/md',
-        component: () => import('@/view/study.onjava8/onJava8.vue')
+        component: () => import('@/view/study/onJava8.vue')
     }
 ];

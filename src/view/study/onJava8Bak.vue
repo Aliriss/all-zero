@@ -10,9 +10,11 @@
 </template>
 
 <script lang="ts">
-import Content from '@/view/study.onjava8/components/Content.vue';
+import Content from '@/view/study/components/Content.vue';
+import * as fs from 'fs';
+
 import { Vue, Options } from 'vue-property-decorator';
-import sideBar from '@/view/study.onjava8/sidebar.md?raw';
+import sideBar from '@/view/study/sidebar.md?raw';
 
 
 @Options({
@@ -28,7 +30,15 @@ export default class onJava8 extends Vue {
   }
 
   async getMdFile() {
-    console.log('haha')
+    const path = './a.txt';
+    let res = '';
+    try {
+      res = fs.readFileSync(path, {encoding: 'utf-8'});
+    } catch(e) {
+      console.log('Failed to read file: ', path, '\n', e);
+    }
+
+    console.log('haha: ', res);
   }
 
 }
