@@ -149,10 +149,10 @@
                   cancel-text="否"
                   @confirm="deleteBill(record)"
               >
-                <a style="user-select: none">删除</a>
+                <a style="user-select: none;color: red;">删除</a>
               </a-popconfirm>
             </template>
-            <a v-if="record.invalidFlag === 1" @click="invalidate(record)">作废</a>
+            <a v-if="record.invalidFlag === 1" @click="invalidate(record)" style="color: red">作废</a>
           </template>
         </template>
       </a-table>
