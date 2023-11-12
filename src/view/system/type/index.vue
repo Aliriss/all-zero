@@ -36,7 +36,7 @@
               cancel-text="No"
               @confirm="deleteOne(record)"
           >
-            <a href="#" style="margin-left: 5px">delete</a>
+            <a href="#" style="margin-left: 5px;color: red">delete</a>
           </a-popconfirm>
 
         </template>

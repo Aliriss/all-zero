@@ -110,10 +110,8 @@
 <script lang="ts">
 import { billApi } from '@/api';
 import { Generator } from '@/util/Generator';
-import { StaticUtils } from '@/util/StaticUtils';
 import { billColumns } from '@/view/analysis/bill/data/Data';
 import { message } from 'ant-design-vue';
-import { log } from 'echarts/types/src/util/log';
 import moment from 'moment';
 import { Options, Prop, Vue } from 'vue-property-decorator';
 

@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@kangc/v-md-editor": "^2.3.17",
-    "antd": "^5.11.0",
+    "antd": "^4.0.6",
     "axios": "^1.6.0",
     "codemirror": "^6.0.1",
     "dayjs": "^1.11.7",

@@ -49,7 +49,6 @@ export default class TypeAddPage extends Vue {
   data: any;
 
   created() {
-    console.log('type:', this.type)
     this.data = {
       id: this.type?.id,
       // name: this.type?.name,
@@ -62,7 +61,6 @@ export default class TypeAddPage extends Vue {
     // ..
   }
   async save() {
-    console.log('data changed: ', {type: this.data})
     if(this.flag) {
       await typeApi.addOne(this.data);
     } else {
