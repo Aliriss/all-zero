@@ -60,15 +60,18 @@
             <a-select-option :key="1" label="作废">未作废</a-select-option>
           </a-select>
         </a-form-item>
-        <a-form-item class="form-item">
+        <a-form-item class="">
           <a-button type="primary" @click="query">查询</a-button>
           <a-button type="default" style="margin-left: 10px" @click="reset">重置</a-button>
+          <a-button type="primary" style="margin-left: 10px" @click="showAddModal">添加</a-button>
+          <a-button type="primary" style="margin-left: 10px" @click="invalide">作废</a-button>
+          <a-button type="primary" style="margin-left: 10px" danger @click="remove">删除</a-button>
+
         </a-form-item>
       </a-form>
     </div>
     <!--add content: add bill list. contain a button used to show add modal -->
     <div class="operation-content">
-      <a-button type="primary" @click="showAddModal">添加</a-button>
       <!--<span style="margin-left: 20px">收入：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.income || 0 }}</span>元</span>-->
       <span style="margin-left: 20px">
         <a-tooltip title="总支出">
@@ -134,8 +137,14 @@
     <!--table content: show bill data-->
     <div class="table-content">
       <a-table
+          row-key="id"
           :columns="columns"
           :data-source="dataSource"
+          :row-selection="{
+            selectedRowKeys: selectedRowKeys,
+            onSelect: onSelect,
+            onSelectAll: selectAll
+          }"
       >
         <template #bodyCell="{column, record}">
           <template v-if="column.key === 'action'">
@@ -233,7 +242,8 @@ export default class Bill extends Vue {
     visible: false,
     confirmLoading: false
   }
-
+  // 选择的行key
+  selectedRowKeys: any = []
   mounted() {
     this.query();
     this.getUser();
@@ -483,6 +493,56 @@ export default class Bill extends Vue {
    */
   closeEditModal() {
     this.editModal.visible = false;
+  }
+
+  /**
+   * 选择
+   *
+   * @param record record
+   * @param selected selected
+   * @param selectedRows selectedRows
+   * @param nativeEvent nativeEvent
+   */
+  onSelect(record: any, selected: any, selectedRows: any, nativeEvent: any) {
+    console.log('record: ', record)
+    console.log('selected: ', selected)
+    console.log('selectedRows: ', selectedRows)
+    this.selectedRowKeys = selectedRows.map((v: any) => v.id);
+  }
+
+  /**
+   * 全选
+   *
+   * @param selected selected
+   * @param selectedRows selectedRows
+   * @param changeRows changeRows
+   */
+  selectAll(selected: any, selectedRows: any, changeRows: any) {
+    this.selectedRowKeys = selectedRows.map((v: any) => v.id);
+  }
+
+  /**
+   * 作废
+   */
+  invalide() {
+    console.log('invalide: ', this.selectedRowKeys)
+    this.selectedRowKeys = [];
+  }
+
+  /**
+   * 删除
+   */
+  remove() {
+    billApi.deleteBill({ ids: this.selectedRowKeys.join(',') }).then((res: any) => {
+      if (res.data.code === 200) {
+        message.success(res.data.msg)
+      } else {
+        message.error(res.data.msg)
+      }
+    }).finally(() => {
+      this.query()
+    });
+    this.selectedRowKeys = [];
   }
 }
 </script>

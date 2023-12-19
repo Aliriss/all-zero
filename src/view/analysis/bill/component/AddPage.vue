@@ -7,6 +7,7 @@
           :data-source="editBillList"
           row-key="id"
           :scroll="{y: 'calc(77vh - 100px)'}"
+          :pagination="false"
       >
         <template #bodyCell="{column, record, index}">
           <!--每一列可编辑模式-->
