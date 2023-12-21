@@ -15,14 +15,14 @@ export default defineConfig({
   // npm run build打包后，运行npm run preview
   preview: {
     port: 5173,
-    host: 'localhost',
-    open: true
+    host: true,
+    open: false
   },
   // npm run dev
   server: {
     port: 5173,
-    host: 'localhost',
-    open: true,
+    host: true,
+    open: false,
     cors: true,
     // https: true,
     // proxy: {

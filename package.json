@@ -2,8 +2,9 @@
   "name": "all-template",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite --host --open",
-    "build": "vite build --open"
+    "dev": "vite --mode development",
+    "build": "vite build",
+    "pro": "vite --mode production"
   },
   "dependencies": {
     "@kangc/v-md-editor": "^2.3.17",
