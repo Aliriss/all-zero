@@ -26,10 +26,9 @@ export default defineConfig({
     cors: true,
     // https: true,
     // proxy: {
-    //   '/': {
-    //     target: 'http://localhost:30483',
-    //     changeOrigin: true,
-    //     rewrite: '/'
+    //   '/*': {
+    //     target: 'http://192.168.77.128:30483',
+    //     changeOrigin: true
     //   }
     // }
   },
