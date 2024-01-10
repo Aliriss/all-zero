@@ -8,15 +8,20 @@
   },
   "dependencies": {
     "@kangc/v-md-editor": "^2.3.17",
+    "@types/js-cookie": "^3.0.6",
     "antd": "^4.0.7",
     "axios": "^1.6.0",
     "codemirror": "^6.0.1",
     "dayjs": "^1.11.7",
+    "element-plus": "^2.4.4",
     "highlight.js": "^11.8.0",
     "html-loader": "^4.2.0",
     "markdown-loader": "^8.0.0",
     "moment": "^2.29.4",
+    "node-sass": "^9.0.0",
     "prismjs": "^1.29.0",
+    "sass": "^1.69.7",
+    "sass-loader": "^13.3.3",
     "typescript": "^4.8.4",
     "vite": "3.2.7",
     "vue": "^3.2.41",
@@ -49,6 +54,6 @@
     "style-loader": "^3.3.1",
     "url-loader": "^4.1.1",
     "vue-class-component": "^8.0.0-rc.1",
-    "vue-property-decorator": "^9.1.2"
+    "vue-property-decorator": "^10.0.0-rc.3"
   }
 }

@@ -59,6 +59,9 @@ VMdEditor.use(vuepressTheme, {
 //   Prism
 // });
 // ---------------------------------------------
+import ElementPlus from 'element-plus';
+import 'element-plus/dist/index.css';
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 
 
@@ -74,6 +77,7 @@ app.use(Antd)
   .use(router)
   .use(VMdEditor)
   .use(VMdPreviewHtml)
+  .use(ElementPlus)
   // .use(message)
 
 ;

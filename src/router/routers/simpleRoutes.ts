@@ -3,6 +3,11 @@
  * @type {({path: string, component: () => Promise<{readonly default?: {data(): {todoList: []}, watch: {data: {handler(): void, deep: boolean, immediate: boolean}}, name: string, props: {data: {default: [{task: string, id: number, done: boolean},{task: string, id: number, done: boolean},{task: string, id: number, done: boolean}], type: [Array | ArrayConstructor], required: boolean}}}}>} | {path: string, component: () => Promise<{readonly default: any}>} | {path: string, component: () => Promise<{readonly default: any}>})[]}
  */
 export const simpleRoutes: any = [
+    // 登录
+    {
+        path: '/login',
+        component: () => import('@/view/login/index.vue'),
+    },
     {
         path: '/todo-list',
         component: () => import('@/view/todolist/ToDoList.vue')
