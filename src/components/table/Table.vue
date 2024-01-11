@@ -6,11 +6,11 @@
   <div id="container"></div>
 </template>
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
+import { Options, Vue, Watch } from 'vue-property-decorator';
 import Fold from '@/components/table/Fold.vue';
 import { ak1, ak2 } from '@/util/map';
 import axios from "axios";
-@Component({
+@Options({
   name: 'Table',
   components: {
     Fold

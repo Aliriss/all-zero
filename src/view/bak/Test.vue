@@ -5,8 +5,8 @@
 </template>
 <script lang="ts">
 import { common } from '@/api/common';
-import { Component, Vue } from 'vue-property-decorator';
-@Component({
+import { Options, Vue } from 'vue-property-decorator';
+@Options({
   name: 'Test'
 })
 export default class Test extends Vue {

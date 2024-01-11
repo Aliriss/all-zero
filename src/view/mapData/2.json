@@ -1,0 +1,92 @@
+{
+  "type": "FeatureCollection",
+  "name": "AreaCity-Geo",
+  "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}},
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"id": "37", "ext_path": "山东省", "pid": "0", "deep": "0", "name": "山东省"},
+      "geometry": {"type": "Point", "coordinates": [117.020725, 36.670201]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3701", "ext_path": "山东省 济南市", "pid": "37", "deep": "1", "name": "济南市"},
+      "geometry": {"type": "Point", "coordinates": [117.120128, 36.652069]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3702", "ext_path": "山东省 青岛市", "pid": "37", "deep": "1", "name": "青岛市"},
+      "geometry": {"type": "Point", "coordinates": [120.382665, 36.066938]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3703", "ext_path": "山东省 淄博市", "pid": "37", "deep": "1", "name": "淄博市"},
+      "geometry": {"type": "Point", "coordinates": [118.054994, 36.813787]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3704", "ext_path": "山东省 枣庄市", "pid": "37", "deep": "1", "name": "枣庄市"},
+      "geometry": {"type": "Point", "coordinates": [117.323759, 34.810858]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3705", "ext_path": "山东省 东营市", "pid": "37", "deep": "1", "name": "东营市"},
+      "geometry": {"type": "Point", "coordinates": [118.674633, 37.433992]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3706", "ext_path": "山东省 烟台市", "pid": "37", "deep": "1", "name": "烟台市"},
+      "geometry": {"type": "Point", "coordinates": [121.447755, 37.464551]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3707", "ext_path": "山东省 潍坊市", "pid": "37", "deep": "1", "name": "潍坊市"},
+      "geometry": {"type": "Point", "coordinates": [119.161721, 36.707668]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3708", "ext_path": "山东省 济宁市", "pid": "37", "deep": "1", "name": "济宁市"},
+      "geometry": {"type": "Point", "coordinates": [116.587116, 35.415117]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3709", "ext_path": "山东省 泰安市", "pid": "37", "deep": "1", "name": "泰安市"},
+      "geometry": {"type": "Point", "coordinates": [117.086963, 36.201784]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3710", "ext_path": "山东省 威海市", "pid": "37", "deep": "1", "name": "威海市"},
+      "geometry": {"type": "Point", "coordinates": [122.120519, 37.513315]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3711", "ext_path": "山东省 日照市", "pid": "37", "deep": "1", "name": "日照市"},
+      "geometry": {"type": "Point", "coordinates": [119.52685, 35.416912]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3713", "ext_path": "山东省 临沂市", "pid": "37", "deep": "1", "name": "临沂市"},
+      "geometry": {"type": "Point", "coordinates": [118.356464, 35.103771]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3714", "ext_path": "山东省 德州市", "pid": "37", "deep": "1", "name": "德州市"},
+      "geometry": {"type": "Point", "coordinates": [116.359244, 37.436492]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3715", "ext_path": "山东省 聊城市", "pid": "37", "deep": "1", "name": "聊城市"},
+      "geometry": {"type": "Point", "coordinates": [115.985238, 36.455857]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3716", "ext_path": "山东省 滨州市", "pid": "37", "deep": "1", "name": "滨州市"},
+      "geometry": {"type": "Point", "coordinates": [117.970731, 37.382687]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": "3717", "ext_path": "山东省 菏泽市", "pid": "37", "deep": "1", "name": "菏泽市"},
+      "geometry": {"type": "Point", "coordinates": [115.479646, 35.234309]}
+    }
+  ]
+}

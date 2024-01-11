@@ -14,7 +14,8 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "vite.config.js"
+      "vite.config.js",
+//      "node"
     ],
     "paths": {
       "@/*": [
@@ -39,5 +40,5 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }

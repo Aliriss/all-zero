@@ -7,8 +7,8 @@
     </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-@Component({
+import { Options, Prop, Vue } from 'vue-property-decorator';
+@Options({
   name: 'LeftCount',
 })
 export default class LeftCount extends Vue {

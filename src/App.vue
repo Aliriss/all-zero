@@ -5,6 +5,10 @@
 export default {
   name: 'App',
   components: {},
-  methods: {}
+  methods: {
+
+  }
 }
 </script>
+<style scoped lang="less">
+</style>

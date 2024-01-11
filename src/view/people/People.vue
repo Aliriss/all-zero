@@ -9,10 +9,10 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Options, Vue } from 'vue-property-decorator';
 import { common } from '@/api/common';
 import Table from '@/components/table/Table.vue';
-@Component({
+@Options({
   name: 'People',
   components: {
     Table

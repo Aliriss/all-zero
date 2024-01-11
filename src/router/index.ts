@@ -1,33 +1,15 @@
+import * as index from '@/router/routers';
 import { createRouter, createWebHashHistory } from 'vue-router';
+
+const routes: any = [];
+for (const i in index) {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  routes.push(...index[i])
+}
+
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: [
-    {
-      path: '/todo-list',
-      component: () => import('@/view/todolist/ToDoList.vue')
-    },
-    {
-      path: '/',
-      redirect: '/home',
-      children: [
-        {
-          path: 'people',
-          component: () => import('@/view/people/People.vue')
-        },
-        {
-          path: 'home',
-          component: () => import('@/view/index.vue')
-        },
-        {
-          path: 'bill/index',
-          component: () => import('@/view/bill/index.vue')
-        }
-      ]
-    },
-    {
-      path: '/expenditure',
-      component: () => import('@/view/expenditure/index.vue')
-    }
-  ]
+  routes: routes
 });
 export default router;
