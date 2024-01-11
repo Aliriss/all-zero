@@ -16,13 +16,7 @@
             type="text"
             :prefix-icon="user"
             placeholder="账号"
-        >
-          <!--<svg-icon-->
-          <!--    slot="prefix"-->
-          <!--    icon-class="user"-->
-          <!--    class="el-input__icon input-icon"-->
-          <!--/>-->
-        </el-input>
+        />
       </el-form-item>
       <el-form-item prop="password" label="密码">
         <el-input
@@ -32,13 +26,7 @@
             placeholder="密码"
             :prefix-icon="lock"
             @keyup.enter="handleLogin"
-        >
-          <!--<svg-icon-->
-          <!--    slot="prefix"-->
-          <!--    icon-class="password"-->
-          <!--    class="el-input__icon input-icon"-->
-          <!--/>-->
-        </el-input>
+        />
       </el-form-item>
       <el-form-item prop="code" label="验证码">
         <el-input
@@ -49,15 +37,10 @@
             @keyup.enter="handleLogin"
         >
           <template #prefix>
-            <!--<svg-->
-            <!--    name="validCode"-->
-            <!--    class="el-input__icon input-icon"-->
-            <!--/>-->
             <IconTest class="svg-icon" />
           </template>
         </el-input>
         <div class="login-code">
-          <!--<img :src="codeUrl" @click="getCode"  alt=""/>-->
           <ValidCode ref="refresh" @getCode="getCode" width="150px" />
         </div>
       </el-form-item>
@@ -86,7 +69,7 @@
 <script lang="ts">
 import ValidCode from './components/ValidCode.vue';
 import { Vue, Options } from 'vue-property-decorator';
-import { CryptoUtils } from '@/utils/CryptoUtils';
+// import { CryptoUtils } from '@/utils/CryptoUtils';
 // import Cookies from 'js-cookie';
 import { User, Lock, Phone } from '@element-plus/icons-vue';
 import IconTest from '@/assets/svg/validCode.svg';
