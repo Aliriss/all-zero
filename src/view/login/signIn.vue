@@ -1,44 +1,46 @@
 <template>
   <div class="login">
     <el-form
-        ref="loginForm"
+        ref="loginFormRef"
         :model="loginForm"
         :rules="loginRules"
         label-position="left"
-        label-width="0px"
+        label-width="65px"
         class="login-form"
+        status-icon
     >
       <h3 class="title">欢迎使用</h3>
-      <el-form-item prop="username">
+      <el-form-item prop="username" label="账号">
         <el-input
             v-model="loginForm.username"
             type="text"
-            auto-complete="off"
+            :prefix-icon="user"
             placeholder="账号"
         >
-          <svg-icon
-              slot="prefix"
-              icon-class="user"
-              class="el-input__icon input-icon"
-          />
+          <!--<svg-icon-->
+          <!--    slot="prefix"-->
+          <!--    icon-class="user"-->
+          <!--    class="el-input__icon input-icon"-->
+          <!--/>-->
         </el-input>
       </el-form-item>
-      <el-form-item prop="password">
+      <el-form-item prop="password" label="密码">
         <el-input
             v-model="loginForm.password"
             type="password"
             auto-complete="off"
             placeholder="密码"
+            :prefix-icon="lock"
             @keyup.enter="handleLogin"
         >
-          <svg-icon
-              slot="prefix"
-              icon-class="password"
-              class="el-input__icon input-icon"
-          />
+          <!--<svg-icon-->
+          <!--    slot="prefix"-->
+          <!--    icon-class="password"-->
+          <!--    class="el-input__icon input-icon"-->
+          <!--/>-->
         </el-input>
       </el-form-item>
-      <el-form-item prop="code">
+      <el-form-item prop="code" label="验证码">
         <el-input
             v-model="loginForm.code"
             auto-complete="off"
@@ -46,24 +48,27 @@
             style="width: 63%"
             @keyup.enter="handleLogin"
         >
-          <svg-icon
-              slot="prefix"
-              icon-class="validCode"
-              class="el-input__icon input-icon"
-          />
+          <template #prefix>
+            <!--<svg-->
+            <!--    name="validCode"-->
+            <!--    class="el-input__icon input-icon"-->
+            <!--/>-->
+            <IconTest class="svg-icon" />
+          </template>
         </el-input>
         <div class="login-code">
-          <img :src="codeUrl" @click="getCode" />
+          <!--<img :src="codeUrl" @click="getCode"  alt=""/>-->
+          <ValidCode ref="refresh" @getCode="getCode" width="150px" />
         </div>
       </el-form-item>
       <el-checkbox v-model="loginForm.rememberMe" style="margin: 0 0 25px 0">
         记住我
       </el-checkbox>
-      <el-form-item style="width: 100%">
+      <el-form-item style="width: 100%" label-width="0">
         <el-button
             :loading="loading"
-            size="medium"
             type="primary"
+            round
             style="width: 100%"
             @click="handleLogin"
         >
@@ -71,26 +76,36 @@
           <span v-else>登 录 中...</span>
         </el-button>
       </el-form-item>
-      <el-form-item style="width: 100%">
-        <a href="/register" class="register">注册</a>
+      <el-form-item style="width: 100%" label-width="0">
+        <a href="#/signUp" class="register">注册</a>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script lang="ts">
+import ValidCode from './components/ValidCode.vue';
 import { Vue, Options } from 'vue-property-decorator';
 import { CryptoUtils } from '@/utils/CryptoUtils';
 // import Cookies from 'js-cookie';
+import { User, Lock, Phone } from '@element-plus/icons-vue';
+import IconTest from '@/assets/svg/validCode.svg';
+
+const code: any = {
+  value: undefined
+}
 
 @Options({
-  name: 'login'
+  name: 'login',
+  components: {
+    ValidCode,
+    IconTest
+  }
 })
 export default class index extends Vue {
-  params: any = {
-    userName: undefined,
-    password: undefined
-  };
+  user = User;
+  lock = Lock;
+  phone = Phone;
 
   codeUrl: any = '';
   cookiePass: any = '';
@@ -108,25 +123,33 @@ export default class index extends Vue {
     password: [
       {required: true, trigger: 'blur', message: '密码不能为空'}
     ],
-    code: [{required: true, trigger: 'change', message: '验证码不能为空'}]
+    code: [
+      {required: true, trigger: 'blur', message: '请输入验证码'},
+      {validator: this.checkCode, trigger: 'blur'},
+    ]
   };
   loading: any = false;
-  redirect: any = undefined
 
 
   created() {
     // 获取验证码
-    this.getCode()
+    this.getCode(undefined);
     // 获取用户名密码等Cookie
     this.getCookie()
     // token 过期提示
     this.point()
   }
 
-  getCode() {
-    // 模拟返回验证码图片
-    this.codeUrl = 'http://www.demodashi.com/ueditor/jsp/upload/image/20170802/1501642847473057707.jpeg';
-    this.loginForm.uuid = '111'
+  checkCode(rule: any, value: any, callback: any) {
+    if (value !== code.value) {
+      callback(new Error('验证码有误，请重新输入'))
+    } else {
+      callback()
+    }
+  }
+
+  getCode(value: any) {
+    code.value = value;
   }
 
   getCookie() {
@@ -145,7 +168,7 @@ export default class index extends Vue {
   }
 
   handleLogin() {
-    (this.$refs.loginForm as any).validate((valid: any) => {
+    (this.$refs.loginFormRef as any).validate((valid: any) => {
       const user = {
         username: this.loginForm.username,
         password: this.loginForm.password,
@@ -159,24 +182,25 @@ export default class index extends Vue {
       if (valid) {
         this.loading = true
         // if (user.rememberMe) {
-          // Cookies.set('username', user.username, {
-          //   expires: Config.passCookieExpires
-          // })
-          // Cookies.set('password', user.password, {
-          //   expires: Config.passCookieExpires
-          // })
-          // Cookies.set('rememberMe', user.rememberMe, {
-          //   expires: Config.passCookieExpires
-          // })
+        // Cookies.set('username', user.username, {
+        //   expires: Config.passCookieExpires
+        // })
+        // Cookies.set('password', user.password, {
+        //   expires: Config.passCookieExpires
+        // })
+        // Cookies.set('rememberMe', user.rememberMe, {
+        //   expires: Config.passCookieExpires
+        // })
         // } else {
-          // Cookies.remove('username')
-          // Cookies.remove('password')
-          // Cookies.remove('rememberMe')
+        // Cookies.remove('username')
+        // Cookies.remove('password')
+        // Cookies.remove('rememberMe')
         // }
         // 模拟登录成功
-        console.log('登录成功')
+        console.log('登录成功: ', user);
+        this.$router.push('/home');
       } else {
-        console.log('error submit!!')
+        console.log('error submit!!: ', user);
         return false
       }
     })
@@ -247,6 +271,7 @@ export default class index extends Vue {
   img {
     cursor: pointer;
     vertical-align: middle;
+    height: 38px;
   }
 }
 
@@ -262,5 +287,11 @@ a {
   outline: none;
   cursor: pointer;
   transition: color 0.3s;
+}
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
 }
 </style>

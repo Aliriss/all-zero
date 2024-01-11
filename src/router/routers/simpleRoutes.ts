@@ -5,8 +5,12 @@
 export const simpleRoutes: any = [
     // 登录
     {
-        path: '/login',
-        component: () => import('@/view/login/index.vue'),
+        path: '/signIn',
+        component: () => import('@/view/login/signIn.vue'),
+    },
+    {
+        path: '/signUp',
+        component: () => import('@/view/login/signUp.vue'),
     },
     {
         path: '/todo-list',
