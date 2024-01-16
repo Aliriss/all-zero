@@ -9,10 +9,10 @@
         class="login-form"
         status-icon
     >
-      <h3 class="title">欢迎使用</h3>
-      <el-form-item prop="username" label="账号">
+      <h3 class="title">欢迎</h3>
+      <el-form-item prop="accountId" label="账号">
         <el-input
-            v-model="loginForm.username"
+            v-model="loginForm.accountId"
             type="text"
             :prefix-icon="user"
             placeholder="账号"
@@ -41,7 +41,7 @@
           </template>
         </el-input>
         <div class="login-code">
-          <ValidCode ref="refresh" @getCode="getCode" width="150px" />
+          <ValidCode ref="validCode" @getCode="getCode" width="150px" />
         </div>
       </el-form-item>
       <el-checkbox v-model="loginForm.rememberMe" style="margin: 0 0 25px 0">
@@ -63,10 +63,15 @@
         <a href="#/signUp" class="register">注册</a>
       </el-form-item>
     </el-form>
+    <!--<div class="footer">-->
+    <!--  Project ©2023 Created by ALL-->
+    <!--</div>-->
   </div>
 </template>
 
 <script lang="ts">
+import { accountApi } from '@/api/system/account';
+import { message } from 'ant-design-vue';
 import ValidCode from './components/ValidCode.vue';
 import { Vue, Options } from 'vue-property-decorator';
 // import { CryptoUtils } from '@/utils/CryptoUtils';
@@ -88,41 +93,43 @@ const code: any = {
 export default class index extends Vue {
   user = User;
   lock = Lock;
-  phone = Phone;
-
-  codeUrl: any = '';
-  cookiePass: any = '';
+  // 登录表单
   loginForm: any = {
-    username: '',
+    accountId: '',
     password: '',
     rememberMe: false,
     code: '',
-    uuid: ''
   };
+  // 规则
   loginRules: any = {
-    username: [
+    // 账号
+    accountId: [
       {required: true, trigger: 'blur', message: '用户名不能为空'}
     ],
+    // 密码
     password: [
       {required: true, trigger: 'blur', message: '密码不能为空'}
     ],
+    // 验证码
     code: [
       {required: true, trigger: 'blur', message: '请输入验证码'},
       {validator: this.checkCode, trigger: 'blur'},
     ]
   };
+  // 登录加载中
   loading: any = false;
 
 
   created() {
-    // 获取验证码
-    this.getCode(undefined);
-    // 获取用户名密码等Cookie
-    this.getCookie()
-    // token 过期提示
-    this.point()
+    console.log('sign in page...');
   }
 
+  /**
+   * 校验输入的验证码是否正确
+   * @param rule rule
+   * @param value value
+   * @param callback callback
+   */
   checkCode(rule: any, value: any, callback: any) {
     if (value !== code.value) {
       callback(new Error('验证码有误，请重新输入'))
@@ -131,80 +138,70 @@ export default class index extends Vue {
     }
   }
 
+  /**
+   * 获取验证码
+   * @param value value
+   */
   getCode(value: any) {
     code.value = value;
   }
 
-  getCookie() {
-    // const username = Cookies.get('username')
-    // let password = Cookies.get('password')
-    // const rememberMe = Cookies.get('rememberMe')
-    // 保存cookie里面的加密后的密码
-    // this.cookiePass = password === undefined ? '' : password
-    // password = password === undefined ? this.loginForm.password : password
-    // this.loginForm = {
-    //   username: username === undefined ? this.loginForm.username : username,
-    //   password: password,
-    //   rememberMe: rememberMe === undefined ? false : Boolean(rememberMe),
-    //   code: ''
-    // }
-  }
-
+  /**
+   * 处理登录事件
+   */
   handleLogin() {
     (this.$refs.loginFormRef as any).validate((valid: any) => {
-      const user = {
-        username: this.loginForm.username,
-        password: this.loginForm.password,
-        rememberMe: this.loginForm.rememberMe,
-        code: this.loginForm.code,
-        uuid: this.loginForm.uuid
-      }
-      // if (user.password !== this.cookiePass) {
-      //   user.password = CryptoUtils.encrypt(user.password)
-      // }
       if (valid) {
         this.loading = true
-        // if (user.rememberMe) {
-        // Cookies.set('username', user.username, {
-        //   expires: Config.passCookieExpires
-        // })
-        // Cookies.set('password', user.password, {
-        //   expires: Config.passCookieExpires
-        // })
-        // Cookies.set('rememberMe', user.rememberMe, {
-        //   expires: Config.passCookieExpires
-        // })
-        // } else {
-        // Cookies.remove('username')
-        // Cookies.remove('password')
-        // Cookies.remove('rememberMe')
-        // }
-        // 模拟登录成功
-        console.log('登录成功: ', user);
-        this.$router.push('/home');
+        this.signIn();
+        this.loading = false;
+        this.refreshCode();
       } else {
-        console.log('error submit!!: ', user);
-        return false
+        this.refreshCode();
+        return false;
       }
+
+    })
+
+  }
+
+  /**
+   * 登录
+   */
+  signIn() {
+    accountApi.signIn({
+      accountId: this.loginForm.accountId,
+      password: this.loginForm.password
+    }).then(r => {
+      const res = r.data.data;
+      if (res.code == 200) {
+        message.success(res.data);
+        setTimeout(() => {
+          this.$router.push('/home');
+        }, 1000);
+      } else {
+        message.error(res.data);
+      }
+    }).catch(e => {
+      message.error(e);
     })
   }
 
-  point() {
-    // const point = Cookies.get('point') !== undefined
-    // if (point) {
-    //   this.$notify({
-    //     title: '提示',
-    //     message: '当前登录状态已过期，请重新登录！',
-    //     type: 'warning',
-    //     duration: 5000
-    //   })
-    //   Cookies.remove('point')
-    // }
+  /**
+   * 刷新验证码
+   */
+  refreshCode() {
+    (this.$refs.validCode as any).refresh();
   }
+
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
+body {
+  background: gray;
+}
+
 .login {
   display: flex;
   justify-content: center;

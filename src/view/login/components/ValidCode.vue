@@ -7,12 +7,15 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-const emits = defineEmits(['getCode'])
+const emits = defineEmits(['getCode']);
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const ctx = ref<CanvasRenderingContext2D | null>(null)
 const code = ref('')
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 const charLength = chars.length
+defineExpose({
+  refresh
+});
 
 function getRandomChar() {
   return chars.charAt(Math.floor(Math.random() * charLength))
