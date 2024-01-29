@@ -63,21 +63,23 @@
         <a href="#/signUp" class="register">注册</a>
       </el-form-item>
     </el-form>
-    <!--<div class="footer">-->
-    <!--  Project ©2023 Created by ALL-->
-    <!--</div>-->
+    <div class="footer">
+      Project {{ version }}©2023 Created by ALL
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { accountApi } from '@/api/system/account';
+import { version } from '@/view/layout/version';
 import { message } from 'ant-design-vue';
 import ValidCode from './components/ValidCode.vue';
 import { Vue, Options } from 'vue-property-decorator';
 // import { CryptoUtils } from '@/utils/CryptoUtils';
 // import Cookies from 'js-cookie';
-import { User, Lock, Phone } from '@element-plus/icons-vue';
+import { User, Lock } from '@element-plus/icons-vue';
 import IconTest from '@/assets/svg/validCode.svg';
+
 
 const code: any = {
   value: undefined
@@ -93,6 +95,7 @@ const code: any = {
 export default class index extends Vue {
   user = User;
   lock = Lock;
+  version = version;
   // 登录表单
   loginForm: any = {
     accountId: '',
@@ -117,7 +120,7 @@ export default class index extends Vue {
     ]
   };
   // 登录加载中
-  loading: any = false;
+  loading = false;
 
 
   created() {
@@ -130,7 +133,7 @@ export default class index extends Vue {
    * @param value value
    * @param callback callback
    */
-  checkCode(rule: any, value: any, callback: any) {
+  checkCode(rule: never, value: never, callback: any) {
     if (value !== code.value) {
       callback(new Error('验证码有误，请重新输入'))
     } else {
@@ -150,7 +153,7 @@ export default class index extends Vue {
    * 处理登录事件
    */
   handleLogin() {
-    (this.$refs.loginFormRef as any).validate((valid: any) => {
+    (this.$refs.loginFormRef as any).validate((valid: never) => {
       if (valid) {
         this.loading = true
         this.signIn();
@@ -203,11 +206,19 @@ body {
 }
 
 .login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  //display: flex;
+  //justify-content: center;
+  //align-items: center;
+  text-align: -webkit-center;
   height: 100%;
   background-size: cover;
+  margin-top: 10%;
+}
+.footer {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 29px;
 }
 
 .title {

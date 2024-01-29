@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
-// import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import svgLoader from 'vite-svg-loader'
 export default defineConfig({
   // envDir: 'env',
@@ -45,5 +44,4 @@ export default defineConfig({
     // }
   }
 
-})
-;
+});

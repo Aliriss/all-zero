@@ -12,9 +12,12 @@
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
     "sourceMap": true,
+    "noEmitOnError": true,
     "baseUrl": ".",
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
     "types": [
-      "vite.config.js",
+      "vite.config.js"
 //      "node"
     ],
     "paths": {
@@ -34,8 +37,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
-,
+    "tests/**/*.tsx",
     "src/components/countBus"
   ],
   "exclude": [

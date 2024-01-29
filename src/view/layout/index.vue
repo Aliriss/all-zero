@@ -20,7 +20,7 @@
         <router-view />
       </a-layout-content>
       <a-layout-footer style="text-align: center">
-        Project ©2023 Created by ALL
+        Project {{ version }}©2023 Created by ALL
       </a-layout-footer>
     </a-layout>
   </a-layout>
@@ -28,6 +28,7 @@
 <script lang="ts">
 import MenuItem from '@/view/layout/MenuItem.vue';
 import { menuTest } from '@/view/layout/TestData';
+import { version } from '@/view/layout/version';
 import {
   PieChartOutlined,
   DesktopOutlined,
@@ -50,6 +51,7 @@ import { Options } from 'vue-class-component'
   }
 })
 export default class Index extends Vue {
+  version = version;
   collapsed = false;
   // 已选菜单id，只有一个选择的id
   selectedKey = ['home'];

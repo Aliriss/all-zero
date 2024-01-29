@@ -36,6 +36,7 @@ module.exports = {
     'vue/object-curly-spacing': 'error',
     'vue/max-attributes-per-line': 'off',
     'vue/require-prop-types': 'off',
-    'vue/no-parsing-error': [2, { 'x-invalid-end-tag': false }]
+    'vue/no-parsing-error': [2, { 'x-invalid-end-tag': false }],
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }
