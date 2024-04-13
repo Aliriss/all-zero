@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { StaticUtils } from '@/util/StaticUtils';
+import { StaticUtils } from '@/utils/StaticUtils';
 import { Vue, Options } from 'vue-property-decorator';
 import * as echarts from 'echarts';
 import mapData from '@/view/mapData/济南市.json';

@@ -110,7 +110,7 @@
 
 <script lang="ts">
 import { billApi } from '@/api';
-import { Generator } from '@/util/Generator';
+import { Generator } from '@/utils/Generator';
 import { billColumns } from '@/view/analysis/bill/data/Data';
 import { message } from 'ant-design-vue';
 import moment from 'moment';

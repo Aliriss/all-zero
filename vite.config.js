@@ -34,14 +34,16 @@ export default defineConfig({
     port: 5173,
     host: true,
     open: false,
-    cors: true
+    cors: true,
     // https: true,
-    // proxy: {
-    //   '/*': {
-    //     target: 'http://192.168.77.128:30483',
-    //     changeOrigin: true
-    //   }
-    // }
+    proxy: {
+      '/*': {
+        target: 'http://localhost:30483',
+        changeOrigin: true
+      }
+    }
+    // 本地
+
   }
 
 });

@@ -6,8 +6,8 @@
 
 <script lang="ts">
 import XLSX from 'xlsx';
-import { x } from '@/util/file/a';
-import { FileUtils } from '@/util/file/fileUtils';
+import { x } from '@/utils/file/a';
+import { FileUtils } from '@/utils/file/fileUtils';
 import { Vue, Options } from 'vue-property-decorator';
 
 @Options({})

@@ -8,7 +8,7 @@
 <script lang="ts">
 import { Options, Vue, Watch } from 'vue-property-decorator';
 import Fold from '@/components/table/Fold.vue';
-import { ak1, ak2 } from '@/util/map';
+import { ak1, ak2 } from '@/utils/map';
 import axios from "axios";
 @Options({
   name: 'Table',

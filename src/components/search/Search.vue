@@ -69,7 +69,7 @@
 <script lang="ts">
 import { billApi, userApi } from '@/api';
 import Date from '@/components/date/Date.vue';
-import { StaticUtils } from '@/util/StaticUtils';
+import { StaticUtils } from '@/utils/StaticUtils';
 import moment from 'moment';
 import { Vue, Options, Prop } from 'vue-property-decorator';
 

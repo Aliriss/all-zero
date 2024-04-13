@@ -56,8 +56,8 @@
               placeholder="请选择消费类型"
               :allow-clear="true"
           >
-            <a-select-option :key="0" label="未作废">作废</a-select-option>
-            <a-select-option :key="1" label="作废">未作废</a-select-option>
+            <a-select-option :key="1" label="未作废">作废</a-select-option>
+            <a-select-option :key="0" label="作废">未作废</a-select-option>
           </a-select>
         </a-form-item>
         <a-form-item class="">
@@ -74,8 +74,15 @@
     <div class="operation-content">
       <!--<span style="margin-left: 20px">收入：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.income || 0 }}</span>元</span>-->
       <span style="margin-left: 20px">
-        <a-tooltip title="总支出">
-          支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.outcome || 0 }}</span>元
+        <a-tooltip>
+        <!--<a-tooltip title="总支出">-->
+          <!--支出：<span :style="{'font-size': '16px', 'color': 'green'}">{{ sumData.outcome || 0 }}</span>元-->
+          <template #title>
+            <p>消费限额：2000元</p>
+            <p>超额: <span :style="{'color': sumData.outcome > 2000 ? 'red' : 'green'}">{{ sumData.outcome > 2000 ? Number(sumData.outcome - 2000).toFixed(2) : 0 }}</span>元</p>
+            <p>余额: <span style="color: green">{{ sumData.outcome < 2000 ? Number(2000 - sumData.outcome).toFixed(2) : 0 }}</span>元</p>
+          </template>
+          总支出：<span :style="{'font-size': '16px', 'color': sumData.outcome > limit ? 'red' : 'green'}">{{ sumData.outcome || 0 }}</span>元
         </a-tooltip>
       </span>
       <span style="margin-left: 20px">
@@ -148,7 +155,7 @@
       >
         <template #bodyCell="{column, record}">
           <template v-if="column.key === 'action'">
-            <template v-if="record.invalidFlag === 0">
+            <template v-if="record.invalidFlag === 1">
               <a style="user-select: none" @click="enable(record)">启用</a>
               <a style="margin-left: 20px;user-select: none" @click="edit(record)">编辑</a>
               <br />
@@ -161,7 +168,7 @@
                 <a style="user-select: none;color: red;">删除</a>
               </a-popconfirm>
             </template>
-            <a v-if="record.invalidFlag === 1" @click="invalidate(record)" style="color: red">作废</a>
+            <a v-if="record.invalidFlag === 0" @click="invalidate(record)" style="color: red">作废</a>
           </template>
         </template>
       </a-table>
@@ -196,7 +203,7 @@
 
 <script lang="ts">
 import { billApi, userApi } from '@/api';
-import { StaticUtils } from '@/util/StaticUtils';
+import { StaticUtils } from '@/utils/StaticUtils';
 import AddPage from '@/view/analysis/bill/component/AddPage.vue';
 import Date from '@/components/date/Date.vue';
 import EditPage from '@/view/analysis/bill/component/EditPage.vue';
@@ -229,7 +236,7 @@ export default class Bill extends Vue {
     endDate: moment().format('YYYY-MM-DD'),
     type: undefined,
     userId: undefined,
-    invalidFlag: 1 // 0：作废，1：启用
+    invalidFlag: 0 // 0：未作废，1：作废
   }
 
   // 添加账单对话框所用到的数据
@@ -278,9 +285,9 @@ export default class Bill extends Vue {
   invalidate(record: any) {
     billApi.invalidateBill({ id: record.id }).then((res: any) => {
       if (res.data.code === 200) {
-        message.success(res.data.msg);
+        message.success(res.data.message);
       } else {
-        message.error(res.data.msg);
+        message.error(res.data.message);
       }
     }).finally(() => {
       this.query();
@@ -294,9 +301,9 @@ export default class Bill extends Vue {
   enable(record: any) {
     billApi.validateBill({ id: record.id }).then((res: any) => {
       if (res.data.code === 200) {
-        message.success(res.data.msg);
+        message.success(res.data.message);
       } else {
-        message.error(res.data.msg);
+        message.error(res.data.message);
       }
     }).finally(() => {
       this.query();
@@ -310,9 +317,9 @@ export default class Bill extends Vue {
   deleteBill(record: any) {
     billApi.deleteBill({id: record.id}).then((res: any) => {
       if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.message)
       } else {
-        message.error(res.data.msg)
+        message.error(res.data.message)
       }
     }).finally(() => {
       this.query()
@@ -367,7 +374,7 @@ export default class Bill extends Vue {
     if (saved) {
       this.closeAddModal();
     }
-    await this.query();
+    this.query();
   }
 
   /**
@@ -535,9 +542,9 @@ export default class Bill extends Vue {
   remove() {
     billApi.deleteBill({ ids: this.selectedRowKeys.join(',') }).then((res: any) => {
       if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.message)
       } else {
-        message.error(res.data.msg)
+        message.error(res.data.message)
       }
     }).finally(() => {
       this.query()

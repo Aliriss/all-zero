@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import * as echarts from 'echarts';
-import { StaticUtils } from '@/util/StaticUtils';
+import { StaticUtils } from '@/utils/StaticUtils';
 import { Vue, Options, Prop, Watch } from 'vue-property-decorator';
 
 @Options({})

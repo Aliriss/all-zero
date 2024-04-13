@@ -1,6 +1,6 @@
 // 费用表头
-import { Generator } from '@/util/Generator';
-import moment from 'moment/moment';
+
+
 
 export const billColumns: any = [
     {
