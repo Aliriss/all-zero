@@ -82,7 +82,7 @@
             <p>超额: <span :style="{'color': sumData.outcome > 2000 ? 'red' : 'green'}">{{ sumData.outcome > 2000 ? Number(sumData.outcome - 2000).toFixed(2) : 0 }}</span>元</p>
             <p>余额: <span style="color: green">{{ sumData.outcome < 2000 ? Number(2000 - sumData.outcome).toFixed(2) : 0 }}</span>元</p>
           </template>
-          总支出：<span :style="{'font-size': '16px', 'color': sumData.outcome > limit ? 'red' : 'green'}">{{ sumData.outcome || 0 }}</span>元
+          总支出：<span :style="{'font-size': '16px', 'color': sumData.outcome > 2000 ? 'red' : 'green'}">{{ sumData.outcome || 0 }}</span>元
         </a-tooltip>
       </span>
       <span style="margin-left: 20px">
