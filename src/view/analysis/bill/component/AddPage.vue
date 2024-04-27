@@ -173,9 +173,9 @@ export default class AddPage extends Vue {
       billList: billList
     }).then((res: any) => {
       if (res.data.code === 200) {
-        message.success(res.data.msg)
+        message.success(res.data.message)
       } else {
-        message.error(res.data.msg)
+        message.error(res.data.message)
       }
     })
     return true;
