@@ -47,7 +47,7 @@ export default class Summary extends Vue {
     endDate: moment().format('YYYY-MM-DD'),
     type: undefined,
     userId: undefined,
-    invalidFlag: 1, // 0：作废，1：启用
+    invalidFlag: 0, // 作废标识：1：作废，0：未作废
     chartType: 'line',
     typeId: '0'
   }

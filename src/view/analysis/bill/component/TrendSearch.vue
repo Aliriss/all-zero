@@ -54,8 +54,8 @@
             placeholder="请选择消费类型"
             :allow-clear="true"
         >
-          <a-select-option :key="0" label="未作废">作废</a-select-option>
-          <a-select-option :key="1" label="作废">未作废</a-select-option>
+          <a-select-option :key="1" label="未作废">作废</a-select-option>
+          <a-select-option :key="0" label="作废">未作废</a-select-option>
         </a-select>
       </a-form-item>
       <a-form-item label="图表类型" name="chartFlag" class="form-item">

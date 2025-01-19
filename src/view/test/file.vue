@@ -14,7 +14,7 @@ import { Vue, Options } from 'vue-property-decorator';
 export default class testMap extends Vue {
 
   download() {
-    FileUtils.base64ToFile(x, 'haha.pdf');
+    // FileUtils.base64ToFile(x, 'haha.pdf');
   }
 }
 </script>
