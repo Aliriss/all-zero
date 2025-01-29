@@ -24,6 +24,10 @@ export const defaultRoutes: any = [
       {
         path: 'trend',
         component: () => import('@/view/analysis/bill/trend.vue')
+      },
+      {
+        path: 'deposit',
+        component: () => import('@/view/deposit/deposit.vue')
       }
     ]
   },
