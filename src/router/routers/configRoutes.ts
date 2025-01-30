@@ -1,7 +1,7 @@
 import { Layout } from '@/router/utils/layout';
 
 /**
- * 默认布局的页面路由
+ * 配置页面路由
  */
 export const configRoutes: any = [{
     path: '/system',
