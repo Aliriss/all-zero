@@ -9,7 +9,11 @@ const getList = (params: any) => {
     return api.post('/deposit/list', params)
 }
 
+const update = (params: any) => {
+    return api.post('/deposit/update', params)
+}
 
 export const depositApi = {
-    getList
+    getList,
+    update
 }
