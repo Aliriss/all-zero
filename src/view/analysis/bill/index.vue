@@ -511,9 +511,6 @@ export default class Bill extends Vue {
    * @param nativeEvent nativeEvent
    */
   onSelect(record: any, selected: any, selectedRows: any, nativeEvent: any) {
-    console.log('record: ', record)
-    console.log('selected: ', selected)
-    console.log('selectedRows: ', selectedRows)
     this.selectedRowKeys = selectedRows.map((v: any) => v.id);
   }
 
@@ -532,7 +529,6 @@ export default class Bill extends Vue {
    * 作废
    */
   invalide() {
-    console.log('invalide: ', this.selectedRowKeys)
     this.selectedRowKeys = [];
   }
 
@@ -560,6 +556,7 @@ export default class Bill extends Vue {
   height: 100%;
   width: 100%;
   font-size: 14px;
+  padding: 10px;
   .search-content {
     .form-content{
       margin-bottom: 15px;
