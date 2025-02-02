@@ -21,7 +21,7 @@
       </a-form>
     </div>
     <div class="operation-content">
-
+      合计：{{ sum }}
     </div>
     <div class="table-content">
       <a-table
@@ -30,6 +30,9 @@
           :data-source="dataSource"
       >
         <template #bodyCell="{column, record}">
+          <template v-if="column.key === 'endDate'">
+            <div style="font-weight: bold">{{ record.endDate }}</div>
+          </template>
           <template v-if="column.key === 'invalid'">
             <a-switch v-model:checked="record.enable" @change="changeState(record)" />
           </template>
@@ -56,38 +59,49 @@ export default class Bill extends Vue {
       title: '用户',
       dataIndex: 'accountName',
       key: 'accountName',
+      width: 200,
     },
     {
       title: '金额',
       dataIndex: 'amount',
       key: 'amount',
+      width: 200,
+      sorter: (a: any, b: any) => Number(a.amount) - Number(b.amount)
     },
     {
       title: '存款日',
       dataIndex: 'startDate',
       key: 'startDate',
+      width: 200,
+      sorter: (a: any, b: any) => a.startDate.localeCompare(b.startDate),
     },
     {
       title: '到期日',
       dataIndex: 'endDate',
       key: 'endDate',
+      width: 200,
+      sorter: (a: any, b: any) => a.endDate.localeCompare(b.endDate)
     },
     {
       title: '存期',
       dataIndex: 'period',
       key: 'period',
+      width: 200,
+      sorter: (a: any, b: any) => a.period.localeCompare(b.period),
     },
     {
       title: '作废',
       dataIndex: 'invalid',
       key: 'invalid',
+      width: 200,
     }
   ]
   params = {
     invalid: 0
   }
   dataSource = [
-  ]
+  ];
+  sum = 0;
 
   mounted() {
     this.getList();
@@ -97,6 +111,8 @@ export default class Bill extends Vue {
     await depositApi.getList(this.params).then((res) => {
       this.dataSource = res.data.data;
       this.dataSource.forEach((v: any) => v.enable = (v.invalid == 1))
+      this.sum = 0;
+      this.dataSource.forEach((v: any) => this.sum += v.amount)
     })
   }
 
@@ -122,6 +138,7 @@ export default class Bill extends Vue {
   height: 100%;
   width: 100%;
   font-size: 14px;
+  padding: 10px;
   .search-content {
     .form-content{
       margin-bottom: 15px;

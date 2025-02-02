@@ -26,7 +26,7 @@
   <!--</a-layout>-->
 
   <!--没有左侧导航栏的样式-->
-  <div style="height: 100%;width: 100%;">
+  <div style="height: 100%;width: 100%;background-color: #fff;">
     <router-view style="height: 100%;width: 100%;"/>
   </div>
 </template>
