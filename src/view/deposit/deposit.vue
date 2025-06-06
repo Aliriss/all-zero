@@ -31,7 +31,15 @@
       >
         <template #bodyCell="{column, record}">
           <template v-if="column.key === 'endDate'">
-            <div style="font-weight: bold">{{ record.endDate }}</div>
+            <div style="font-weight: bold">
+              <div style="color: green;display: inline">{{ record.endDate }}</div>
+              <div v-if="record.endDate !== '-'">
+                （剩
+                <div style="color: green;display: inline">{{ getDay(record.endDate) }}</div>
+                天）
+              </div>
+
+            </div>
           </template>
           <template v-if="column.key === 'invalid'">
             <a-switch v-model:checked="record.enable" @change="changeState(record)" />
@@ -59,41 +67,53 @@ export default class Bill extends Vue {
       title: '用户',
       dataIndex: 'accountName',
       key: 'accountName',
-      width: 200,
-    },
-    {
-      title: '金额',
-      dataIndex: 'amount',
-      key: 'amount',
-      width: 200,
-      sorter: (a: any, b: any) => Number(a.amount) - Number(b.amount)
-    },
-    {
-      title: '存款日',
-      dataIndex: 'startDate',
-      key: 'startDate',
-      width: 200,
-      sorter: (a: any, b: any) => a.startDate.localeCompare(b.startDate),
     },
     {
       title: '到期日',
       dataIndex: 'endDate',
       key: 'endDate',
-      width: 200,
       sorter: (a: any, b: any) => a.endDate.localeCompare(b.endDate)
+    },
+    {
+      title: '金额',
+      dataIndex: 'amount',
+      key: 'amount',
+      sorter: (a: any, b: any) => Number(a.amount) - Number(b.amount)
+    },
+    {
+      title: '银行',
+      dataIndex: 'bankName',
+      key: 'bankName',
+      sorter: (a: any, b: any) => a.bankName.localeCompare(b.bankName),
+    },
+    {
+      title: '利率',
+      dataIndex: 'interestRate',
+      key: 'interestRate',
+      sorter: (a: any, b: any) => a.interestRate.localeCompare(b.interestRate),
+    },
+    {
+      title: '利息',
+      dataIndex: 'interest',
+      key: 'interest',
+      sorter: (a: any, b: any) => Number(a.interest) - Number(b.interest)
+    },
+    {
+      title: '存款日',
+      dataIndex: 'startDate',
+      key: 'startDate',
+      sorter: (a: any, b: any) => a.startDate.localeCompare(b.startDate),
     },
     {
       title: '存期',
       dataIndex: 'period',
       key: 'period',
-      width: 200,
       sorter: (a: any, b: any) => a.period.localeCompare(b.period),
     },
     {
       title: '作废',
       dataIndex: 'invalid',
       key: 'invalid',
-      width: 200,
     }
   ]
   params = {
@@ -128,6 +148,18 @@ export default class Bill extends Vue {
       }
     })
     this.getList();
+  }
+
+  getDay(endDate: string) {
+    const start = Date.now();
+    const end = Date.parse(endDate);
+    if (start > end) {
+      return 0;
+    }
+    if (start == end) {
+      return 1;
+    }
+    return Math.round((end - start) / (24 * 60 * 60 * 1000));
   }
 }
 </script>

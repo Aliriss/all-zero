@@ -202,7 +202,8 @@ export default class index extends Vue {
 
 <style rel="stylesheet/scss" lang="scss">
 body {
-  background: gray;
+  //background: gray;
+  background: #fff;
 }
 
 .login {
