@@ -3,7 +3,8 @@ import App from './App.vue';
 // import './assets/bootstrap/css/bootstrap.css';
 import './index.css';
 import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
+// antd的样式文件居然是reset.css，以后少用这个组件吧，很不规范，经几番调整。
+import 'ant-design-vue/dist/reset.css';
 import router from './router/index';
 
 
