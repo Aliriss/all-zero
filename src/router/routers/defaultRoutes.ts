@@ -20,6 +20,10 @@ export const defaultRoutes: any = [
         path: 'bill',
         component: () => import('@/view/analysis/bill/index.vue')
       },
+      {
+        path: 'bill1',
+        component: () => import('@/view/analysis/bill/index1.vue')
+      },
       // 消费记录合计页面
       {
         path: 'summary',
