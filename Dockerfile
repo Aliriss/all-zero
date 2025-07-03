@@ -10,6 +10,8 @@ WORKDIR /all-zero
 # 安装pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
+RUN pnpm config set registry https://registry.npmmirror.com
+
 # 复制package.json
 COPY package.json .
 
