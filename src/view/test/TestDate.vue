@@ -1,23 +1,23 @@
 
 <template>
 <div>
-  {{ name }}
+  <!--{{ name }}-->
 </div>
 </template>
 <script lang="ts">
 import {Options, Vue} from 'vue-property-decorator'
-import DatePicker from '@/components/date/DatePicker.vue'
+// import DatePicker from '@/components/date/DatePicker.vue'
 @Options({
   name: 'TestDate',
-  components: {DatePicker},
-  props: {
-  },
-  emits: [
-    'change', 'dimChange'
-  ]
+  // components: {DatePicker},
+  // props: {
+  // },
+  // emits: [
+    // 'change', 'dimChange'
+  // ]
 })
 export class TestDate extends Vue{
-  name = 'TestDate'
+  // name = 'TestDate'
 }
 </script>
 
