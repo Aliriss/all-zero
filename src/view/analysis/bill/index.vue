@@ -182,6 +182,7 @@
         style="top: 30px"
         :confirm-loading="addModalData.confirmLoading"
         destroyOnClose
+        :maskClosable="false"
         @ok="addBillList"
         @cancel="closeAddModal"
     >
